@@ -173,8 +173,8 @@
                         </select>
 
                         <small class="form-text text-muted">
-                            Pilih kelompok jika template ini
-                            akan digunakan untuk tugas bersama.
+                            Pilih kelompok supaya semua anggotanya bisa membuka dan mengedit workspace ini.
+                            Biarkan &ldquo;Workspace pribadi&rdquo; kalau hanya untukmu.
                         </small>
 
                     </div>

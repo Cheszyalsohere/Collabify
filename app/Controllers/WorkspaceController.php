@@ -285,15 +285,7 @@ class WorkspaceController extends BaseController
                 );
         }
 
-        if (!$groupId) {
-            return redirect()
-                ->back()
-                ->withInput()
-                ->with(
-                    'error',
-                    'Pilih kelompok terlebih dahulu.'
-                );
-        }
+        // Kelompok opsional: kosong = workspace pribadi (id_group NULL).
 
         /*
          * Jika judul kosong,
@@ -363,11 +355,8 @@ class WorkspaceController extends BaseController
         /*
          * Pastikan user anggota kelompok.
          */
-        $isMember = $this->memberModel
-            ->isMember(
-                $groupId,
-                $idUser
-            );
+        $isMember = $groupId === 0
+            || $this->memberModel->isMember($groupId, $idUser);
 
         if (!$isMember) {
             return redirect()
@@ -387,15 +376,16 @@ class WorkspaceController extends BaseController
          * Satu template + satu kelompok
          * hanya boleh memiliki satu workspace.
          */
-        $existingWorkspace = $this->workspaceModel
-            ->where(
-                'id_template',
-                $templateId
-            )
-            ->where(
-                'id_group',
-                $groupId
-            )
+        $existingQuery = $this->workspaceModel->where('id_template', $templateId);
+
+        if ($groupId > 0) {
+            $existingQuery->where('id_group', $groupId);
+        } else {
+            // pribadi: satu workspace per pengguna per template
+            $existingQuery->where('id_group', null)->where('created_by', $idUser);
+        }
+
+        $existingWorkspace = $existingQuery
             ->where(
                 'status',
                 'active'
@@ -502,7 +492,7 @@ class WorkspaceController extends BaseController
         $workspaceId = $this->workspaceModel
             ->insert([
                 'id_template' => $templateId,
-                'id_group'    => $groupId,
+                'id_group'    => $groupId > 0 ? $groupId : null,
                 'created_by'  => $idUser,
                 'judul'       => $judul,
                 'file_path'   =>
