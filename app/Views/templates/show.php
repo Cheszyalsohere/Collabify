@@ -5,7 +5,6 @@
 <div class="d-flex justify-content-between align-items-center">
 
     <div>
-        <div class="page-eyebrow">SUMBER DAYA AKADEMIK</div>
         <h1 class="page-title mb-1">Detail Template</h1>
         <p class="page-sub mb-0">
             Informasi lengkap mengenai template.
@@ -599,7 +598,7 @@
 ========================= */
 
 .bookmark-btn.is-bookmarked {
-    background: #5E91C4;
+    background: #4477A6;
     border-color: #5E91C4;
     color: #fff;
 }
@@ -852,7 +851,7 @@
     justify-content: center;
 
     background: #EAF3FA;
-    color: #5E91C4;
+    color: #376590;
 
     font-size: 15px;
 }

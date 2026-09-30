@@ -172,7 +172,7 @@
 
     font-size: 20px;
 
-    color: #77777D;
+    color: #62666D;
 
     transition:
         color .16s ease,
@@ -182,7 +182,7 @@
 
 .nav-link:hover .collabify-menu-icon {
 
-    color: #5E91C4;
+    color: #376590;
 
     transform: scale(1.04);
 }
@@ -226,7 +226,7 @@
 
     background: #FFF8F7;
 
-    color: #9A9AA0;
+    color: #62666D;
 
     font-size: 12.5px;
 
@@ -254,7 +254,7 @@
 
     flex-shrink: 0;
 
-    color: #9A9AA0;
+    color: #62666D;
 
     font-size: 16px;
 }
@@ -284,7 +284,7 @@
 
     background: #FFFFFF;
 
-    color: #9A9AA0;
+    color: #62666D;
 
     font-family: var(--mono);
 
@@ -326,7 +326,7 @@
 
     background: transparent;
 
-    color: #77777D;
+    color: #62666D;
 
     cursor: pointer;
 
@@ -341,7 +341,7 @@
 
     background: #FFF0F1;
 
-    color: #FF677D;
+    color: #B23A52;
 
     transform: translateY(-1px);
 }
@@ -373,7 +373,7 @@
 
     border-radius: 10px;
 
-    color: #77777D !important;
+    color: #62666D !important;
 
     transition:
         background .16s ease,
@@ -385,7 +385,7 @@
 
     background: #EAF3FA;
 
-    color: #5E91C4 !important;
+    color: #376590 !important;
 }
 
 
@@ -433,7 +433,7 @@
 
     border-radius: 10px;
 
-    background: #79A9D8;
+    background: #4477A6;
 
     color: #FFFFFF;
 
@@ -463,7 +463,7 @@
 
 .collabify-chevron {
 
-    color: #9A9AA0;
+    color: #62666D;
 
     font-size: 14px;
 }
@@ -514,7 +514,7 @@
 
 .collabify-dropdown .dropdown-item i {
 
-    color: #77777D;
+    color: #62666D;
 
     font-size: 16px;
 }
@@ -524,13 +524,13 @@
 
     background: #EAF3FA;
 
-    color: #5E91C4;
+    color: #376590;
 }
 
 
 .collabify-dropdown .dropdown-item:hover i {
 
-    color: #5E91C4;
+    color: #376590;
 }
 
 
@@ -546,13 +546,13 @@
 
     background: #FFF0F1;
 
-    color: #FF677D;
+    color: #B23A52;
 }
 
 
 .collabify-dropdown .collabify-logout:hover i {
 
-    color: #FF677D;
+    color: #B23A52;
 }
 
 

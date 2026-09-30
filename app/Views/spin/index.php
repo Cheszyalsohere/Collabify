@@ -2,7 +2,6 @@
 
 <?= $this->section('header') ?>
 <div>
-    <div class="page-eyebrow">TOOLS</div>
     <h1 class="page-title mb-1">Spin Pembagian Tugas</h1>
     <p class="page-sub mb-0">Bagi bagian tugas ke anggota kelompok secara adil dan transparan.</p>
 </div>
@@ -605,7 +604,7 @@
                         align-items: center;
                         justify-content: center;
                         font-size: 29px;
-                        animation: winnerPop .55s cubic-bezier(.2, 1.4, .4, 1);
+                        animation: winnerPop .45s cubic-bezier(.22, 1, .36, 1);
                     }
 
                     @keyframes winnerPop {
@@ -1843,13 +1842,16 @@ function csrfToken() {
                                     Math.PI * 2
                                 );
 
+                                const darkTheme =
+                                    document.body.classList.contains('collabify-dark');
+
                                 wheelCtx.fillStyle =
-                                    '#efedf5';
+                                    darkTheme ? 'rgba(255,255,255,.08)' : '#E6EEF7';
 
                                 wheelCtx.fill();
 
                                 wheelCtx.fillStyle =
-                                    '#aaa6b5';
+                                    darkTheme ? '#A9B0BD' : '#62666D';
 
                                 wheelCtx.font =
                                     '700 22px Arial';

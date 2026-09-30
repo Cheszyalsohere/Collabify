@@ -8,8 +8,6 @@
             Semua Tugas
         </a>
     </div>
-
-    <div class="page-eyebrow">TASK MANAGEMENT</div>
     <h1 class="page-title mb-1">
         <?= esc($task['judul']) ?>
     </h1>

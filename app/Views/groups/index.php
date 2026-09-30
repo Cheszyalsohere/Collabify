@@ -5,10 +5,6 @@
 <div class="d-flex justify-content-between align-items-center flex-wrap">
 
     <div>
-        <div class="group-eyebrow">
-            <i class="ti ti-users-group"></i>
-            COLLABORATION SPACE
-        </div>
 
         <h1 class="page-title mb-1">
             Kelompok
@@ -236,7 +232,7 @@
     font-size: 11px;
     font-weight: 600;
     letter-spacing: .14em;
-    color: #5E91C4;
+    color: #376590;
 }
 
 .group-eyebrow i {
@@ -268,7 +264,7 @@
 .group-join-btn {
     background: rgba(255,255,255,.82) !important;
     border: 1px solid rgba(255,255,255,.9) !important;
-    color: #5E91C4 !important;
+    color: #376590 !important;
 
     box-shadow:
         0 6px 18px rgba(94,145,196,.07),
@@ -277,12 +273,12 @@
 
 .group-join-btn:hover {
     background: #EAF3FA !important;
-    color: #5E91C4 !important;
+    color: #376590 !important;
     transform: translateY(-2px);
 }
 
 .group-create-btn {
-    background: #5E91C4 !important;
+    background: #4477A6 !important;
     border-color: #5E91C4 !important;
     color: #fff !important;
 
@@ -291,7 +287,7 @@
 }
 
 .group-create-btn:hover {
-    background: #4F83B6 !important;
+    background: #4477A6 !important;
     border-color: #4F83B6 !important;
     color: #fff !important;
     transform: translateY(-2px);
@@ -332,7 +328,7 @@
 
 .group-count {
     font-size: 12px;
-    color: #999BA1;
+    color: #62666D;
 }
 
 
@@ -417,7 +413,7 @@
     justify-content: center;
 
     background: #EAF3FA;
-    color: #5E91C4;
+    color: #376590;
 
     font-size: 22px;
 }
@@ -429,7 +425,7 @@
 
 .group-grid > div:nth-child(even) .group-icon {
     background: #FFF0F1;
-    color: #FF677D;
+    color: #B23A52;
 }
 
 .group-grid > div:nth-child(even) .group-card::after {
@@ -458,7 +454,7 @@
 
 .role-ketua {
     background: #FFF0F1;
-    color: #FF677D;
+    color: #B23A52;
 }
 
 
@@ -466,7 +462,7 @@
 
 .role-anggota {
     background: #EAF3FA;
-    color: #5E91C4;
+    color: #376590;
 }
 
 
@@ -498,7 +494,7 @@
     margin-bottom: 14px;
 
     font-size: 12.5px;
-    color: #77777D;
+    color: #62666D;
 }
 
 .group-invite > i {
@@ -518,7 +514,7 @@
 
     background: #F2F7FB;
 
-    color: #5E91C4;
+    color: #376590;
 
     font-family: var(--mono);
     font-size: 11px;
@@ -530,7 +526,7 @@
 
 .group-grid > div:nth-child(even) .invite-code {
     background: #FFF0F1;
-    color: #FF677D;
+    color: #B23A52;
 }
 
 
@@ -547,18 +543,18 @@
 
     border-top: 1px solid #F0DFE1;
 
-    color: #999BA1;
+    color: #62666D;
 
     font-size: 12px;
 }
 
 .group-meta i {
-    color: #5E91C4;
+    color: #376590;
     font-size: 15px;
 }
 
 .group-grid > div:nth-child(even) .group-meta i {
-    color: #FF677D;
+    color: #B23A52;
 }
 
 
@@ -582,7 +578,7 @@
 
     background: #EAF3FA;
 
-    color: #5E91C4;
+    color: #376590;
 
     font-size: 13px;
     font-weight: 600;
@@ -603,7 +599,7 @@
 
 .group-open-btn:hover {
     background: #DDECF8;
-    color: #4F83B6;
+    color: #376590;
     text-decoration: none;
 }
 
@@ -616,12 +612,12 @@
 
 .group-grid > div:nth-child(even) .group-open-btn {
     background: #FFF0F1;
-    color: #FF677D;
+    color: #B23A52;
 }
 
 .group-grid > div:nth-child(even) .group-open-btn:hover {
     background: #FFE2E5;
-    color: #F2556D;
+    color: #B23A52;
 }
 
 
@@ -662,7 +658,7 @@
     border-radius: 17px;
 
     background: #EAF3FA;
-    color: #5E91C4;
+    color: #376590;
 
     font-size: 27px;
 }
@@ -679,7 +675,7 @@
 .group-empty p {
     margin-bottom: 22px;
 
-    color: #77777D;
+    color: #62666D;
     font-size: 13px;
 }
 

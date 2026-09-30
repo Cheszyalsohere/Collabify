@@ -5,7 +5,6 @@
 <div class="d-flex justify-content-between align-items-center">
 
     <div>
-        <div class="page-eyebrow">RUANG KERJA</div>
         <h1 class="page-title mb-1">Gunakan Template</h1>
 
         <p class="page-sub mb-0">
@@ -253,7 +252,7 @@
     align-items: center;
     justify-content: center;
 
-    background: #5E91C4;
+    background: #4477A6;
     color: #fff;
 
     font-size: 21px;
@@ -273,7 +272,7 @@
 }
 
 .workspace-info-icon {
-    color: #5E91C4;
+    color: #376590;
     font-size: 18px;
     padding-top: 1px;
 }

@@ -5,10 +5,6 @@
 <div class="d-flex justify-content-between align-items-center flex-wrap">
 
     <div>
-        <div class="task-eyebrow">
-            <i class="ti ti-checklist"></i>
-            TASK MANAGEMENT
-        </div>
 
         <h1 class="page-title mb-1">
             Tugas
@@ -410,7 +406,7 @@
 
     letter-spacing: .14em;
 
-    color: #5E91C4;
+    color: #376590;
 }
 
 .task-eyebrow i {
@@ -435,7 +431,7 @@
 
     border-radius: 12px;
 
-    background: #5E91C4;
+    background: #4477A6;
 
     border: 1px solid #5E91C4;
 
@@ -457,7 +453,7 @@
 
 .task-create-btn:hover {
 
-    background: #4F83B6;
+    background: #4477A6;
 
     border-color: #4F83B6;
 
@@ -499,11 +495,11 @@
 }
 
 .task-alert-success {
-    color: #5E91C4;
+    color: #376590;
 }
 
 .task-alert-danger {
-    color: #FF677D;
+    color: #B23A52;
 }
 
 .task-alert i {
@@ -539,7 +535,7 @@
 
     font-size: 12px;
 
-    color: #999BA1;
+    color: #62666D;
 }
 
 
@@ -677,7 +673,7 @@
 
     background: #F2F3F5;
 
-    color: #77777D;
+    color: #62666D;
 }
 
 
@@ -697,7 +693,7 @@
 
     background: #EAF3FA;
 
-    color: #5E91C4;
+    color: #376590;
 }
 
 
@@ -719,7 +715,7 @@
 
     background: #FFF0F1;
 
-    color: #FF677D;
+    color: #B23A52;
 
     font-size: 10.5px;
 
@@ -765,7 +761,7 @@
 
     margin: 0 0 19px;
 
-    color: #77777D;
+    color: #62666D;
 
     font-size: 13px;
 
@@ -844,7 +840,7 @@
 
     background: #EAF3FA;
 
-    color: #5E91C4;
+    color: #376590;
 }
 
 
@@ -854,7 +850,7 @@
 
     background: #FFF0F1;
 
-    color: #FF677D;
+    color: #B23A52;
 }
 
 
@@ -908,7 +904,7 @@
 
 .deadline-overdue {
 
-    color: #FF677D;
+    color: #B23A52;
 }
 
 
@@ -938,7 +934,7 @@
 
     background: #EAF3FA;
 
-    color: #5E91C4;
+    color: #376590;
 
     font-size: 13px;
 
@@ -963,7 +959,7 @@
 
     background: #DDECF8;
 
-    color: #4F83B6;
+    color: #376590;
 
     text-decoration: none;
 }
@@ -982,14 +978,14 @@
 
     background: #FFF0F1;
 
-    color: #FF677D;
+    color: #B23A52;
 }
 
 .task-grid > div:nth-child(even) .task-detail-btn:hover {
 
     background: #FFE2E5;
 
-    color: #F2556D;
+    color: #B23A52;
 }
 
 
@@ -1037,7 +1033,7 @@
 
     background: #EAF3FA;
 
-    color: #5E91C4;
+    color: #376590;
 
     font-size: 27px;
 }
@@ -1057,7 +1053,7 @@
 
     margin-bottom: 22px;
 
-    color: #77777D;
+    color: #62666D;
 
     font-size: 13px;
 }

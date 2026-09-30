@@ -2,7 +2,6 @@
 
 <?= $this->section('header') ?>
 <div>
-    <div class="page-eyebrow">TASK MANAGEMENT</div>
     <h1 class="page-title mb-1">Tambah Tugas</h1>
     <p class="page-sub mb-0">Tambahkan tugas baru ke kelompokmu.</p>
 </div>

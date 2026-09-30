@@ -2,7 +2,6 @@
 
 <?= $this->section('header') ?>
 <div>
-    <div class="page-eyebrow">CATATAN PRIBADI</div>
     <h1 class="page-title mb-1">Tambah Catatan</h1>
     <p class="page-sub mb-0">
         Buat catatan baru untuk kelompokmu.

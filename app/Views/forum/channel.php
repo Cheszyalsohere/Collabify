@@ -905,7 +905,7 @@ body.collabify-dark .forum-messages::-webkit-scrollbar-thumb:hover {
 .content-header .btn-light:hover {
     background: #FFF0F1;
     border-color: #FFCCD2;
-    color: #FF677D;
+    color: #B23A52;
 }
 
 body.collabify-dark .content-header .btn-light {

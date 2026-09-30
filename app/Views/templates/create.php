@@ -3,7 +3,6 @@
 <?= $this->section('header') ?>
 
 <div>
-    <div class="page-eyebrow">SUMBER DAYA AKADEMIK</div>
     <h1 class="page-title mb-1">Upload Template</h1>
     <p class="page-sub mb-0">
         Bagikan template yang bermanfaat untuk kebutuhan akademik.

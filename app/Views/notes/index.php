@@ -4,7 +4,6 @@
 
 <div class="notes-header">
     <div>
-        <div class="notes-eyebrow">CATATAN PRIBADI</div>
         <h1 class="notes-title">Catatan</h1>
         <p class="notes-subtitle">
             Simpan ide, informasi, dan hal penting untuk setiap kelompok.
@@ -211,7 +210,7 @@
     font-size: 10px;
     font-weight: 700;
     letter-spacing: .12em;
-    color: #5E91C4;
+    color: #376590;
 }
 
 .notes-title {
@@ -224,7 +223,7 @@
 
 .notes-subtitle {
     margin: 0;
-    color: #77777D;
+    color: #62666D;
     font-size: 13px;
 }
 
@@ -243,7 +242,7 @@
 
     border-radius: 11px;
 
-    background: #79A9D8;
+    background: #4477A6;
     color: #FFFFFF !important;
 
     font-size: 13px;
@@ -296,7 +295,7 @@
 
 .notes-alert-danger {
     background: #FFF0F1;
-    color: #D95A70;
+    color: #B23A52;
     border: 1px solid #F6D5D9;
 }
 
@@ -327,7 +326,7 @@
     font-size: 11px;
     font-weight: 700;
     letter-spacing: .08em;
-    color: #77777D;
+    color: #62666D;
 }
 
 .notes-count {
@@ -335,7 +334,7 @@
     border-radius: 999px;
 
     background: #F7F7F7;
-    color: #77777D;
+    color: #62666D;
 
     font-size: 11px;
     font-weight: 600;
@@ -460,11 +459,11 @@
 .note-group i {
     flex-shrink: 0;
     font-size: 14px;
-    color: #5E91C4;
+    color: #376590;
 }
 
 .note-accent-pink .note-group i {
-    color: #FF677D;
+    color: #B23A52;
 }
 
 .note-color {
@@ -534,13 +533,13 @@
     border-radius: 9px;
 
     background: rgba(255,255,255,.65);
-    color: #5E91C4;
+    color: #376590;
 
     font-size: 15px;
 }
 
 .note-accent-pink .note-author-icon {
-    color: #FF677D;
+    color: #B23A52;
 }
 
 .note-author-name {
@@ -590,7 +589,7 @@
     border-radius: 9px;
 
     background: rgba(255,255,255,.52);
-    color: #D95A70;
+    color: #B23A52;
 
     cursor: pointer;
 
@@ -602,7 +601,7 @@
 
 .note-delete-btn:hover {
     background: #FFF0F1;
-    color: #FF677D;
+    color: #B23A52;
 
     transform: translateY(-1px);
 }
@@ -649,7 +648,7 @@
     border-radius: 17px;
 
     background: #EAF3FA;
-    color: #5E91C4;
+    color: #376590;
 
     font-size: 29px;
 }
@@ -668,7 +667,7 @@
 
     margin: 0 auto 22px;
 
-    color: #77777D;
+    color: #62666D;
 
     font-size: 13px;
     line-height: 1.6;
@@ -683,7 +682,7 @@
 
     border-radius: 10px;
 
-    background: #79A9D8;
+    background: #4477A6;
     color: #FFFFFF !important;
 
     font-size: 13px;

@@ -67,7 +67,13 @@
 
         body{
             font-family:'Geist',system-ui,-apple-system,sans-serif;
-            background:var(--bg);
+            background-color:var(--bg);
+            /* gradasi yang sama dengan halaman aplikasi, supaya beranda tidak terasa berbeda */
+            background-image:
+                radial-gradient(58% 44% at 4% 0%,    rgba(94,196,255,.24) 0%, rgba(94,196,255,0) 70%),
+                radial-gradient(50% 40% at 100% 18%, rgba(255,140,198,.18) 0%, rgba(255,140,198,0) 68%),
+                radial-gradient(54% 44% at 42% 100%, rgba(183,156,255,.16) 0%, rgba(183,156,255,0) 70%),
+                linear-gradient(180deg,#fff8fc 0%,#f3f9ff 58%,#fef5fc 100%);
             color:var(--ink);
             min-height:100vh;
             display:flex;
@@ -478,16 +484,19 @@
         }
 
         .flash.ok{
-            border-left:3px solid var(--blue-deep);
+            border:1px solid rgba(68,119,166,.35);
+            background:#EEF5FB;
+            color:#2F5A84;
         }
 
         .flash.ok i{
-            color:var(--blue-deep);
+            color:#376590;
         }
 
         .flash.err{
-            border-left:3px solid var(--pink-hot);
-            color:#B94D5D;
+            border:1px solid rgba(178,58,82,.35);
+            background:#FDEEF1;
+            color:#B23A52;
         }
 
         .flash.err i{

@@ -9,8 +9,6 @@
                 Semua Kelompok
             </a>
         </div>
-
-        <div class="page-eyebrow">COLLABORATION SPACE</div>
         <h1 class="page-title mb-1">
             <?= esc($group['nama_kelompok']) ?>
         </h1>

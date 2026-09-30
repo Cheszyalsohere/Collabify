@@ -13,8 +13,6 @@
         </div>
 
         <div class="d-flex align-items-center flex-wrap" style="gap: 10px;">
-
-            <div class="page-eyebrow">RUANG KERJA</div>
             <h1 class="page-title mb-0">
                 <?= esc($workspace['judul']) ?>
             </h1>
@@ -618,8 +616,9 @@
 }
 
 .document-editor blockquote {
-    border-left: 3px solid var(--forest);
-    padding-left: 15px;
+    background: var(--tint);
+    border-radius: 10px;
+    padding: 10px 16px;
     margin-left: 0;
     color: var(--muted);
 }

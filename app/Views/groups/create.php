@@ -2,7 +2,6 @@
 
 <?= $this->section('header') ?>
 <div>
-    <div class="page-eyebrow">COLLABORATION SPACE</div>
     <h1 class="page-title mb-1">Buat Kelompok</h1>
     <p class="page-sub mb-0">Buat ruang kolaborasi baru untuk timmu.</p>
 </div>

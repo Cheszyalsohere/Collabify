@@ -5,9 +5,6 @@
 <div class="workspace-header">
 
     <div>
-        <div class="workspace-eyebrow">
-            RUANG KERJA
-        </div>
 
         <h1 class="workspace-title">
             Workspace Saya
@@ -132,20 +129,20 @@
   box-shadow:0 10px 30px rgba(89,119,151,.08);}
 .gh-main{flex:1 1 220px;min-width:0;}
 .gh-title{font-weight:600;color:#30323A;font-size:14.5px;display:flex;align-items:center;gap:7px;}
-.gh-title i{color:#5E91C4;font-size:18px;}
-.gh-meta{font-size:12px;color:#77777D;margin-top:2px;}
-.gh-meta a{color:#5E91C4;}
+.gh-title i{color:#376590;font-size:18px;}
+.gh-meta{font-size:12px;color:#62666D;margin-top:2px;}
+.gh-meta a{color:#376590;}
 .gh-link-form{display:flex;align-items:center;gap:8px;flex:2 1 320px;min-width:0;}
 .gh-input{flex:1;min-width:0;height:38px;padding:0 12px;border-radius:11px;border:1px solid #D9DBDE;background:rgba(255,255,255,.8);font-size:13px;}
 .gh-input:focus{outline:none;border-color:#5E91C4;box-shadow:0 0 0 3px rgba(94,145,196,.15);}
-.gh-btn{height:38px;padding:0 14px;border-radius:11px;border:0;background:#5E91C4;color:#fff;font-weight:600;font-size:13px;
+.gh-btn{height:38px;padding:0 14px;border-radius:11px;border:0;background:#4477A6;color:#fff;font-weight:600;font-size:13px;
   display:inline-flex;align-items:center;gap:5px;cursor:pointer;text-decoration:none;}
 .gh-btn:hover{background:#4A7DB0;color:#fff;}
-.gh-btn-open{background:#EAF3FA;color:#5E91C4;}
+.gh-btn-open{background:#EAF3FA;color:#376590;}
 .gh-btn-open:hover{background:#D5E6F5;color:#4A7DB0;}
-.gh-btn-del{background:transparent;color:#B64C59;padding:0 10px;}
-.gh-btn-del:hover{background:#FCE8EC;color:#B64C59;}
-.gh-hint{font-size:12px;color:#77777D;margin:0 0 26px;}
+.gh-btn-del{background:transparent;color:#B23A52;padding:0 10px;}
+.gh-btn-del:hover{background:#FCE8EC;color:#B23A52;}
+.gh-hint{font-size:12px;color:#62666D;margin:0 0 26px;}
 </style>
 
 
@@ -311,7 +308,7 @@
 .workspace-eyebrow {
     margin-bottom: 6px;
 
-    color: #5E91C4;
+    color: #376590;
 
     font-size: 10px;
     font-weight: 700;
@@ -331,7 +328,7 @@
 .workspace-subtitle {
     margin: 0;
 
-    color: #77777D;
+    color: #62666D;
 
     font-size: 13px;
 }
@@ -353,7 +350,7 @@
 
     border-radius: 11px;
 
-    background: #79A9D8;
+    background: #4477A6;
     color: #FFFFFF !important;
 
     font-size: 13px;
@@ -399,7 +396,7 @@
     border-radius: 12px;
 
     background: #FFF0F1;
-    color: #D95A70;
+    color: #B23A52;
 
     font-size: 13px;
     font-weight: 500;
@@ -429,7 +426,7 @@
 }
 
 .workspace-list-label {
-    color: #77777D;
+    color: #62666D;
 
     font-size: 11px;
     font-weight: 700;
@@ -442,7 +439,7 @@
     border-radius: 999px;
 
     background: #F7F7F7;
-    color: #77777D;
+    color: #62666D;
 
     font-size: 11px;
     font-weight: 600;
@@ -555,14 +552,14 @@
     border-radius: 13px;
 
     background: #EAF3FA;
-    color: #5E91C4;
+    color: #376590;
 
     font-size: 23px;
 }
 
 .workspace-accent-pink .workspace-folder-icon {
     background: #FFF0F1;
-    color: #FF677D;
+    color: #B23A52;
 }
 
 
@@ -648,17 +645,17 @@
     border-radius: 8px;
 
     background: #FFFFFF;
-    color: #77777D;
+    color: #62666D;
 
     font-size: 14px;
 }
 
 .workspace-accent-blue .workspace-source-icon {
-    color: #5E91C4;
+    color: #376590;
 }
 
 .workspace-accent-pink .workspace-source-icon {
-    color: #FF677D;
+    color: #B23A52;
 }
 
 .workspace-source-text {
@@ -670,7 +667,7 @@
 
     margin-bottom: 2px;
 
-    color: #999AA0;
+    color: #62666D;
 
     font-size: 9px;
 }
@@ -703,19 +700,19 @@
 
     margin-top: 13px;
 
-    color: #77777D;
+    color: #62666D;
 
     font-size: 11px;
 }
 
 .workspace-group i {
-    color: #5E91C4;
+    color: #376590;
 
     font-size: 15px;
 }
 
 .workspace-accent-pink .workspace-group i {
-    color: #FF677D;
+    color: #B23A52;
 }
 
 
@@ -766,7 +763,7 @@
 
 .workspace-accent-blue .workspace-open-btn {
     background: #EAF3FA;
-    color: #5E91C4 !important;
+    color: #376590 !important;
 }
 
 .workspace-accent-blue .workspace-open-btn:hover {
@@ -775,7 +772,7 @@
 
 .workspace-accent-pink .workspace-open-btn {
     background: #FFF0F1;
-    color: #FF677D !important;
+    color: #B23A52 !important;
 }
 
 .workspace-accent-pink .workspace-open-btn:hover {
@@ -821,7 +818,7 @@
     border-radius: 17px;
 
     background: #FFF0F1;
-    color: #FF677D;
+    color: #B23A52;
 
     font-size: 29px;
 }
@@ -840,7 +837,7 @@
 
     margin: 0 auto 22px;
 
-    color: #77777D;
+    color: #62666D;
 
     font-size: 13px;
     line-height: 1.6;
@@ -856,7 +853,7 @@
 
     border-radius: 10px;
 
-    background: #79A9D8;
+    background: #4477A6;
     color: #FFFFFF !important;
 
     font-size: 13px;

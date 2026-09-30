@@ -25,8 +25,8 @@
       --surface:#FFFFFF;
 
       --ink:#24262B;
-      --muted:#777A80;
-      --faint:#A5A7AC;
+      --muted:#62666D;
+      --faint:#6E727A;
 
       --border:#E4E5E7;
       --border-2:#D9DBDE;
@@ -126,27 +126,22 @@
   .content{padding:10px 28px 36px!important;}
   .page-sub{color:var(--muted)!important;}
 
-  /* ── Header halaman: SATU pola untuk semua halaman ──────────────
-     eyebrow kecil (biru) + judul 28px + subjudul 13px.
-     Halaman hasil redesign punya nama kelas sendiri (group-/task-/notes-/... -eyebrow);
-     semuanya disamakan di sini, halaman lain cukup memakai .page-eyebrow. */
+  /* ── Header halaman: judul + subjudul, sama di semua halaman ──────── */
   .content-header .page-eyebrow,.content-header .group-eyebrow,.content-header .task-eyebrow,
   .content-header .notes-eyebrow,.content-header .template-eyebrow,.content-header .workspace-eyebrow,
-  .content-header .profile-eyebrow{
-    display:flex!important;align-items:center;gap:7px;margin:0 0 6px!important;
-    font-size:11px!important;font-weight:700!important;letter-spacing:.14em!important;
-    text-transform:uppercase;color:#5E91C4!important;line-height:1.3!important;}
+  .content-header .profile-eyebrow{display:none!important;}
   .content-header h1:not(.cf-title),.content-header .page-title,.content-header .notes-title,
   .content-header .template-title,.content-header .workspace-title,.content-header .profile-title{
     font-size:28px!important;line-height:1.2!important;font-weight:700!important;
-    letter-spacing:-.02em!important;color:#30323A!important;margin:0 0 5px!important;}
+    letter-spacing:-.02em!important;color:#30323A!important;margin:0 0 6px!important;}
   .content-header p:not(.cf-sub),.content-header .page-sub,.content-header .notes-subtitle,
   .content-header .template-subtitle,.content-header .workspace-subtitle,.content-header .profile-subtitle{
-    font-size:13px!important;line-height:1.5!important;color:#77777D!important;margin:0!important;}
+    font-size:14px!important;line-height:1.5!important;color:#62666D!important;margin:0!important;max-width:65ch;}
   @media (max-width:640px){
     .content-header h1:not(.cf-title),.content-header .page-title,.content-header .notes-title,
     .content-header .template-title,.content-header .workspace-title,.content-header .profile-title{font-size:24px!important;}
   }
+
 
   /* ── Cards ── */
   .card,.lis-card{background:var(--surface)!important;border:1px solid var(--border)!important;
@@ -163,11 +158,11 @@
     transition:transform .14s,background .14s,box-shadow .14s!important;}
   .btn:hover{transform:translateY(-1px);}
   .btn-sm{font-size:12px!important;padding:6px 11px!important;border-radius:8px!important;}
-  .btn-primary,.btn-success{background:var(--forest)!important;border-color:var(--forest)!important;color:#fff!important;box-shadow:0 4px 12px rgba(111,159,203,.20)!important;}
-  .btn-primary:hover,.btn-success:hover{background:#5B8DBB!important;}
+  .btn-primary,.btn-success{background:#4477A6!important;border-color:#4477A6!important;color:#fff!important;box-shadow:0 4px 12px rgba(111,159,203,.20)!important;}
+  .btn-primary:hover,.btn-success:hover{background:#386791!important;border-color:#386791!important;}
   .btn-secondary,.btn-default,.btn-light{background:var(--surface)!important;border-color:var(--border-2)!important;color:var(--ink)!important;}
   .btn-secondary:hover,.btn-default:hover{border-color:var(--faint)!important;background:var(--paper)!important;}
-  .btn-info,.btn-warning{background:var(--tint)!important;border-color:transparent!important;color:var(--forest)!important;}
+  .btn-info,.btn-warning{background:var(--tint)!important;border-color:transparent!important;color:#376590!important;}
   .btn-danger{background:var(--amber-bg)!important;border-color:transparent!important;color:var(--amber)!important;}
   .btn-danger:hover{background:#ecddc4!important;}
 
@@ -205,7 +200,10 @@
   /* ── Badges / pills ── */
   .badge{border-radius:999px!important;font-weight:500!important;font-family:var(--mono);font-size:10.5px!important;
     letter-spacing:.02em;padding:.4em .8em!important;}
-  .badge-success,.badge-primary{background:var(--tint)!important;color:var(--forest)!important;}
+  .badge-success,.badge-primary{background:var(--tint)!important;color:#376590!important;}
+  .btn-outline-success,.btn-outline-primary{color:#376590!important;border-color:#9DB9D4!important;background:transparent!important;}
+  .btn-outline-success:hover,.btn-outline-primary:hover{background:var(--tint)!important;color:#2F5A84!important;border-color:#376590!important;}
+  .text-success,.text-primary{color:#376590!important;}
   .badge-danger,.badge-warning{background:var(--amber-bg)!important;color:var(--amber)!important;}
   .badge-secondary,.badge-info{background:var(--paper)!important;color:var(--muted)!important;border:1px solid var(--border);}
 
@@ -228,20 +226,19 @@
   ::-webkit-scrollbar-thumb{background:#dcdcd6;border:3px solid var(--paper);border-radius:10px;}
   ::-webkit-scrollbar-thumb:hover{background:#c8c8c2;}
 
-  /* ══════════ GLASS — satu tampilan kaca untuk semua halaman ══════════
-     Kartu sebelumnya sudah semi-transparan, tetapi latar halaman polos (krem),
-     sehingga tampak seperti kotak putih. Sekarang latarnya gradasi berwarna
-     (biru–pink–lilac, seperti landing/dashboard) dan semua kartu, sidebar, serta
-     navbar memakai efek kaca (blur + tepi terang). */
-  /* gradasi ditaruh di .wrapper agar menyatu di belakang sidebar, navbar, dan isi halaman */
-  body.hold-transition .wrapper,body .wrapper{
+  /* ══════════ PERMUKAAN — satu sistem untuk semua halaman aplikasi ══════════
+     Latar: gradasi lembut biru–pink–lilac seperti landing, dibuat redup supaya isi halaman terbaca.
+     Kartu: lembaran putih semi-transparan dengan blur ringan (bukan kaca penuh).
+     Kaca sungguhan hanya untuk "chrome" (sidebar & navbar), seperti navbar di landing. */
+  body .wrapper{
     background:
-      radial-gradient(60% 46% at 4% 0%,   rgba(94,196,255,.40) 0%, rgba(94,196,255,0) 70%),
-      radial-gradient(52% 42% at 100% 20%, rgba(255,140,198,.32) 0%, rgba(255,140,198,0) 68%),
-      radial-gradient(56% 46% at 42% 100%, rgba(183,156,255,.28) 0%, rgba(183,156,255,0) 70%),
-      linear-gradient(180deg,#fff6fb 0%,#eef7ff 58%,#fdf2fb 100%)!important;
+      radial-gradient(58% 44% at 4% 0%,    rgba(94,196,255,.24) 0%, rgba(94,196,255,0) 70%),
+      radial-gradient(50% 40% at 100% 18%, rgba(255,140,198,.18) 0%, rgba(255,140,198,0) 68%),
+      radial-gradient(54% 44% at 42% 100%, rgba(183,156,255,.16) 0%, rgba(183,156,255,0) 70%),
+      linear-gradient(180deg,#fff8fc 0%,#f3f9ff 58%,#fef5fc 100%)!important;
   }
   body .content-wrapper{background:transparent!important;background-image:none!important;}
+
   body .content-wrapper .card,
   body .content-wrapper .lis-card,
   body .content-wrapper .group-card,
@@ -251,34 +248,57 @@
   body .content-wrapper .profile-card,
   body .content-wrapper .profile-info-card,
   body .content-wrapper .gh-item{
-    background:rgba(255,255,255,.52)!important;
-    border:1px solid rgba(255,255,255,.82)!important;
-    -webkit-backdrop-filter:blur(18px) saturate(150%)!important;
-    backdrop-filter:blur(18px) saturate(150%)!important;
-    box-shadow:0 12px 34px rgba(89,119,151,.10),inset 0 1px 0 rgba(255,255,255,.85)!important;
+    background:rgba(255,255,255,.80)!important;
+    border:1px solid rgba(255,255,255,.95)!important;
+    border-radius:16px!important;
+    -webkit-backdrop-filter:blur(10px);
+    backdrop-filter:blur(10px);
+    box-shadow:0 1px 2px rgba(40,60,90,.06),0 4px 8px rgba(40,60,90,.05)!important;
   }
-  /* catatan tetap berwarna, tetapi tembus pandang */
   body .content-wrapper .note-card{
-    background:color-mix(in srgb,var(--note-bg,#fff) 58%,transparent)!important;
-    border:1px solid rgba(255,255,255,.82)!important;
-    -webkit-backdrop-filter:blur(18px) saturate(150%)!important;
-    backdrop-filter:blur(18px) saturate(150%)!important;
+    background:color-mix(in srgb,var(--note-bg,#fff) 72%,#fff)!important;
+    border:1px solid rgba(255,255,255,.95)!important;
+    border-radius:16px!important;
+    box-shadow:0 1px 2px rgba(40,60,90,.06),0 4px 8px rgba(40,60,90,.05)!important;
+  }
+  body .content-wrapper .group-card:hover,
+  body .content-wrapper .task-card:hover,
+  body .content-wrapper .template-card:hover,
+  body .content-wrapper .workspace-card:hover,
+  body .content-wrapper .note-card:hover{
+    box-shadow:0 2px 4px rgba(40,60,90,.08),0 8px 8px rgba(40,60,90,.06)!important;
   }
   body .content-wrapper .card-header,
-  body .content-wrapper .card-footer{background:transparent!important;border-color:rgba(255,255,255,.7)!important;}
+  body .content-wrapper .card-footer{background:transparent!important;border-color:rgba(40,60,90,.08)!important;}
   body .content-wrapper .form-control,
-  body .content-wrapper .custom-select{background:rgba(255,255,255,.72)!important;}
+  body .content-wrapper .custom-select{background:#fff!important;border-color:#C9CDD3!important;}
+  body .content-wrapper ::placeholder{color:#6E727A!important;opacity:1;}
+
+  /* chrome: kaca sungguhan */
   body .main-sidebar{
-    background:rgba(255,255,255,.62)!important;
-    -webkit-backdrop-filter:blur(20px) saturate(150%);
-    backdrop-filter:blur(20px) saturate(150%);
-    border-right:1px solid rgba(255,255,255,.8)!important;
+    background:rgba(255,255,255,.72)!important;
+    -webkit-backdrop-filter:blur(16px) saturate(130%);
+    backdrop-filter:blur(16px) saturate(130%);
+    border-right:1px solid rgba(255,255,255,.9)!important;
   }
   body .main-header{
-    background:rgba(255,255,255,.55)!important;
-    -webkit-backdrop-filter:blur(20px) saturate(150%);
-    backdrop-filter:blur(20px) saturate(150%);
+    background:rgba(255,255,255,.70)!important;
+    -webkit-backdrop-filter:blur(16px) saturate(130%);
+    backdrop-filter:blur(16px) saturate(130%);
+  }
+
+  /* fokus keyboard yang selalu terlihat */
+  body a:focus-visible,body button:focus-visible,body input:focus-visible,body select:focus-visible,
+  body textarea:focus-visible,body summary:focus-visible,body [tabindex]:focus-visible{
+    outline:3px solid rgba(68,119,166,.6)!important;outline-offset:2px!important;
+  }
+
+  /* hormati pengguna yang mematikan animasi */
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;
+      transition-duration:.01ms!important;scroll-behavior:auto!important;}
   }
 </style>
 
 <link rel="stylesheet" href="<?= base_url('assets/css/collabify-ui.css') ?>">
+<link rel="stylesheet" href="<?= base_url('assets/css/collabify-dark.css') ?>?v=5">

@@ -6,9 +6,6 @@
 <div class="profile-heading">
 
     <div>
-        <div class="profile-eyebrow">
-            AKUN
-        </div>
 
         <h1 class="profile-title">
             Profil Saya
@@ -50,7 +47,7 @@
 .profile-eyebrow{
     margin-bottom:5px;
 
-    color:#5E91C4;
+    color:#376590;
 
     font-size:10px;
     font-weight:750;
@@ -73,7 +70,7 @@
 .profile-subtitle{
     margin:6px 0 0;
 
-    color:#77777D;
+    color:#62666D;
 
     font-size:12px;
 }
@@ -201,7 +198,7 @@
 
     background:#EAF3FA;
 
-    color:#5E91C4;
+    color:#376590;
 
     font-size:9px;
     font-weight:700;
@@ -237,7 +234,7 @@
 .profile-alert-success{
     background:#EAF3FA;
 
-    color:#5E91C4;
+    color:#376590;
 
     border:1px solid #D9EAF7;
 }
@@ -246,7 +243,7 @@
 .profile-alert-error{
     background:#FFF0F1;
 
-    color:#FF677D;
+    color:#B23A52;
 
     border:1px solid #FFDADD;
 }
@@ -315,7 +312,7 @@
 
 
 .profile-field input::placeholder{
-    color:#B0B1B5;
+    color:#62666D;
 }
 
 
@@ -355,7 +352,7 @@
     border:0;
     border-radius:11px;
 
-    background:#79A9D8;
+    background:#4477A6;
 
     color:#FFFFFF;
 
@@ -374,7 +371,7 @@
 
 .profile-save:hover{
 
-    background:#5E91C4;
+    background:#4477A6;
 
     color:#FFFFFF;
 
@@ -442,7 +439,7 @@
 
     background:#FFF0F1;
 
-    color:#FF677D;
+    color:#B23A52;
 
     font-size:16px;
 }
@@ -452,7 +449,7 @@
 
     background:#EAF3FA;
 
-    color:#5E91C4;
+    color:#376590;
 }
 
 
@@ -471,7 +468,7 @@
 
     margin:0;
 
-    color:#77777D;
+    color:#62666D;
 
     font-size:10.5px;
     line-height:1.6;

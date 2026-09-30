@@ -3,7 +3,6 @@
 <?= $this->section('header') ?>
 
 <div>
-    <div class="page-eyebrow">SUMBER DAYA AKADEMIK</div>
     <h1 class="page-title mb-1">Template Tersimpan</h1>
 
     <p class="page-sub mb-0">

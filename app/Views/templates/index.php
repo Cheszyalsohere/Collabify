@@ -4,7 +4,6 @@
 
 <div class="template-header">
     <div>
-        <div class="template-eyebrow">SUMBER DAYA AKADEMIK</div>
 
         <h1 class="template-title">
             Template
@@ -252,7 +251,7 @@
     font-weight: 700;
     letter-spacing: .12em;
 
-    color: #5E91C4;
+    color: #376590;
 }
 
 .template-title {
@@ -268,7 +267,7 @@
 .template-subtitle {
     margin: 0;
 
-    color: #77777D;
+    color: #62666D;
 
     font-size: 13px;
 }
@@ -289,7 +288,7 @@
 
     border-radius: 11px;
 
-    background: #79A9D8;
+    background: #4477A6;
     color: #FFFFFF !important;
 
     font-size: 13px;
@@ -344,7 +343,7 @@
 
 .template-alert-danger {
     background: #FFF0F1;
-    color: #D95A70;
+    color: #B23A52;
     border: 1px solid #F6D5D9;
 }
 
@@ -376,7 +375,7 @@
     font-weight: 700;
     letter-spacing: .08em;
 
-    color: #77777D;
+    color: #62666D;
 }
 
 .template-count {
@@ -385,7 +384,7 @@
     border-radius: 999px;
 
     background: #F7F7F7;
-    color: #77777D;
+    color: #62666D;
 
     font-size: 11px;
     font-weight: 600;
@@ -495,14 +494,14 @@
     border-radius: 12px;
 
     background: #EAF3FA;
-    color: #5E91C4;
+    color: #376590;
 
     font-size: 22px;
 }
 
 .template-accent-pink .template-file-icon {
     background: #FFF0F1;
-    color: #FF677D;
+    color: #B23A52;
 }
 
 
@@ -551,7 +550,7 @@
 
     margin: 0 0 18px;
 
-    color: #77777D;
+    color: #62666D;
 
     font-size: 12px;
     line-height: 1.65;
@@ -602,17 +601,17 @@
     border-radius: 8px;
 
     background: #F7F7F7;
-    color: #77777D;
+    color: #62666D;
 
     font-size: 14px;
 }
 
 .template-accent-blue .template-meta-icon {
-    color: #5E91C4;
+    color: #376590;
 }
 
 .template-accent-pink .template-meta-icon {
-    color: #FF677D;
+    color: #B23A52;
 }
 
 .template-meta-item > div {
@@ -624,7 +623,7 @@
 
     margin-bottom: 1px;
 
-    color: #999AA0;
+    color: #62666D;
 
     font-size: 9px;
 }
@@ -703,12 +702,12 @@
 
 .template-accent-blue .template-detail-btn {
     background: #EAF3FA;
-    color: #5E91C4 !important;
+    color: #376590 !important;
 }
 
 .template-accent-pink .template-detail-btn {
     background: #FFF0F1;
-    color: #FF677D !important;
+    color: #B23A52 !important;
 }
 
 .template-detail-btn:hover {
@@ -765,7 +764,7 @@
     border-radius: 17px;
 
     background: #EAF3FA;
-    color: #5E91C4;
+    color: #376590;
 
     font-size: 29px;
 }
@@ -784,7 +783,7 @@
 
     margin: 0 auto 22px;
 
-    color: #77777D;
+    color: #62666D;
 
     font-size: 13px;
     line-height: 1.6;
@@ -799,7 +798,7 @@
 
     border-radius: 10px;
 
-    background: #79A9D8;
+    background: #4477A6;
     color: #FFFFFF !important;
 
     font-size: 13px;
