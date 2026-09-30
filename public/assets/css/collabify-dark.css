@@ -326,6 +326,7 @@ html body.collabify-dark .history-session-head{background:rgba(255,255,255,.06)!
 html body.collabify-dark .history-session-meta{color:#A9B0BD!important}
 html body.collabify-dark .home-btn-secondary{background:rgba(255,255,255,.06)!important}
 html body.collabify-dark .home-btn-secondary:hover{border-color:rgba(255,255,255,.10)!important}
+html body.collabify-dark .home-cal td.is-today.has-deadline::after{background:rgba(255,255,255,.06)!important}
 html body.collabify-dark .home-empty-icon{background:rgba(255,255,255,.06)!important}
 html body.collabify-dark .home-group-card{background:rgba(255,255,255,.06)!important}
 html body.collabify-dark .home-group-card:hover{background:rgba(255,255,255,.06)!important}

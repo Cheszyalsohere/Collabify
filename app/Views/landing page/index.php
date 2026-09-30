@@ -226,6 +226,11 @@ body:has(.cf-page){
   box-shadow:0 8px 22px rgba(108,174,211,.22),inset 0 1px 0 rgba(255,255,255,.35);
 }
 @media(max-width:820px){.cf-page .cf-links{position:static;left:auto;right:auto;justify-content:flex-start;pointer-events:auto;}}
+
+/* navbar tamu */
+.cf-auth{margin-left:auto;display:flex;align-items:center;gap:8px;}
+.cf-nav .cf-btn{padding:9px 16px;font-size:13px;}
+@media(max-width:560px){.cf-auth .cf-btn.secondary{display:none;}}
 </style>
 <?= $this->endSection() ?>
 
@@ -240,15 +245,15 @@ body:has(.cf-page){
     </a>
     <div class="cf-links">
       <a class="active" href="<?= base_url('/') ?>">Home</a>
-      <a href="<?= base_url('spin') ?>">Tools</a>
-      <a href="<?= base_url('templates') ?>">Templates</a>
-      <a href="<?= base_url('forum') ?>">Forum</a>
     </div>
-    <div class="cf-profile"><?= strtoupper(substr((string)(session()->get('name') ?? 'S'),0,1)) ?></div>
+    <div class="cf-auth">
+      <a class="cf-btn secondary" href="<?= base_url('login') ?>">Masuk</a>
+      <a class="cf-btn primary" href="<?= base_url('register') ?>">Daftar gratis</a>
+    </div>
   </nav>
 
   <section class="cf-hero">
-    <h1 class="cf-greeting">Hi, <strong><?= esc(session()->get('name') ?? 'there') ?>!</strong><br>How was your day?</h1>
+    <h1 class="cf-greeting">Hi, <strong>there!</strong><br>How was your day?</h1>
     <p class="cf-sub">A soft little space to keep your tasks, groups, templates, and conversations together.</p>
 
     <div class="cf-art-wrap">
@@ -257,130 +262,12 @@ body:has(.cf-page){
     </div>
 
     <div class="cf-actions">
-      <a class="cf-btn primary" href="<?= base_url('tasks') ?>">+ Buat Tugas Baru</a>
-      <a class="cf-btn secondary" href="<?= base_url('groups') ?>">Lihat Kelompokku</a>
+      <a class="cf-btn primary" href="<?= base_url('register') ?>">Mulai sekarang</a>
+      <a class="cf-btn secondary" href="<?= base_url('login') ?>">Sudah punya akun? Masuk</a>
     </div>
   </section>
 
-  <section class="cf-section">
-    <div class="cf-heading">
-      <div><h2>Recently visited</h2><p>Semua hal yang baru saja kamu buka.</p></div>
-      <a href="#" id="cfClearRecent">Clear</a>
-    </div>
-
-    <div class="cf-recent-shell">
-      <button class="cf-recent-arrow left" type="button" id="cfRecentPrev">‹</button>
-      <div class="cf-recent-track" id="cfRecentTrack">
-        <a class="cf-recent-card" href="<?= base_url('forum') ?>" data-recent-type="forum" data-recent-title="Forum kelompok" data-recent-url="<?= base_url('forum') ?>">
-          <div class="cf-card-top"><span>Forum</span><span class="cf-card-icon">◌</span></div><div><div class="cf-card-title">Ruang diskusi kelompok</div><div class="cf-card-meta">Buka forum →</div></div>
-        </a>
-        <a class="cf-recent-card" href="<?= base_url('tasks') ?>" data-recent-type="task" data-recent-title="Tugas" data-recent-url="<?= base_url('tasks') ?>">
-          <div class="cf-card-top"><span>Task</span><span class="cf-card-icon">✓</span></div><div><div class="cf-card-title">Tugas yang sedang dikerjakan</div><div class="cf-card-meta">Lihat tugas →</div></div>
-        </a>
-        <a class="cf-recent-card" href="<?= base_url('templates') ?>" data-recent-type="template" data-recent-title="Templates" data-recent-url="<?= base_url('templates') ?>">
-          <div class="cf-card-top"><span>Template</span><span class="cf-card-icon">✦</span></div><div><div class="cf-card-title">Template kolaborasi</div><div class="cf-card-meta">Buka templates →</div></div>
-        </a>
-        <a class="cf-recent-card" href="<?= base_url('spin') ?>" data-recent-type="spin" data-recent-title="Spin" data-recent-url="<?= base_url('spin') ?>">
-          <div class="cf-card-top"><span>Tools</span><span class="cf-card-icon">✧</span></div><div><div class="cf-card-title">Spin untuk menentukan sesuatu</div><div class="cf-card-meta">Buka spin →</div></div>
-        </a>
-      </div>
-      <button class="cf-recent-arrow right" type="button" id="cfRecentNext">›</button>
-    </div>
-  </section>
-
-  <section class="cf-section">
-    <div class="cf-grid">
-      <div class="cf-glass cf-deadlines">
-        <div class="cf-deadline-head"><div><h3>Upcoming deadlines</h3><p>Tap a card or swipe it to finish.</p></div><span class="cf-deadline-count" id="cfDeadlineCount">3 deadlines</span></div>
-        <div class="cf-deck" id="cfDeadlineDeck">
-          <div class="cf-deck-card" data-task-id="1"><div><div class="type">Nearest deadline</div><h4>Proposal Penelitian Masinfo</h4></div><div><div class="due">Due today · 23:59</div><button class="swipe" type="button">↗ Swipe to mark</button></div></div>
-          <div class="cf-deck-card" data-task-id="2"><div><div class="type">Next deadline</div><h4>Presentasi kelompok</h4></div><div><div class="due">Tomorrow · 16:00</div><button class="swipe" type="button">↗ Swipe to mark</button></div></div>
-          <div class="cf-deck-card" data-task-id="3"><div><div class="type">Next deadline</div><h4>Review jurnal</h4></div><div><div class="due">In 2 days · 20:00</div><button class="swipe" type="button">↗ Swipe to mark</button></div></div>
-        </div>
-      </div>
-
-      <div class="cf-glass cf-calendar">
-        <div class="cf-cal-head"><div><div class="cf-cal-title">Your calendar</div><div class="cf-cal-month" id="cfMonthLabel"></div></div><div class="cf-cal-nav"><button type="button" id="cfPrevMonth">‹</button><button type="button" id="cfNextMonth">›</button></div></div>
-        <div class="cf-week"><span>M</span><span>S</span><span>S</span><span>R</span><span>K</span><span>J</span><span>S</span></div>
-        <div class="cf-days" id="cfCalendarDays"></div>
-        <div class="cf-agenda"><div class="cf-agenda-label" id="cfAgendaLabel">Today</div><div id="cfAgendaList"><div class="cf-agenda-item"><i class="cf-agenda-dot"></i><div><strong>No scheduled activity</strong><span>Aktivitas dari task dan forum akan muncul di sini.</span></div></div></div></div>
-      </div>
-    </div>
-
-    <div class="cf-glass cf-forum">
-      <div class="cf-forum-icon">☷</div>
-      <div class="cf-forum-body"><div class="eyebrow">Forum activity</div><strong>Kelompokmu sedang aktif</strong><span>Aktivitas forum terbaru akan tampil di sini setelah backend activity feed disambungkan.</span></div>
-      <a class="cf-forum-open" href="<?= base_url('forum') ?>">Open forum →</a>
-    </div>
-  </section>
 </div>
 
-<script>
-(function(){
-  document.body.classList.add('collabify-page');
-  document.querySelectorAll('.main-header, .main-sidebar, .main-footer').forEach(function(el){ el.style.display='none'; });
-  /* Recently visited — visual interaction now; global persistence hook is ready. */
-  const track=document.getElementById('cfRecentTrack');
-  const cards=[...document.querySelectorAll('.cf-recent-card')];
-  const prev=document.getElementById('cfRecentPrev');
-  const next=document.getElementById('cfRecentNext');
-  const clear=document.getElementById('cfClearRecent');
-  let drag=false,startX=0,scrollStart=0;
 
-  function focusCard(){
-    const center=track.scrollLeft+track.clientWidth/2;
-    let best=null,dist=Infinity;
-    cards.forEach(c=>{const cc=c.offsetLeft+c.offsetWidth/2;const d=Math.abs(cc-center);if(d<dist){dist=d;best=c;}});
-    cards.forEach(c=>c.classList.toggle('is-focus',c===best));
-  }
-  track.addEventListener('scroll',()=>requestAnimationFrame(focusCard),{passive:true});
-  cards.forEach(c=>c.addEventListener('mouseenter',()=>cards.forEach(x=>x.classList.toggle('is-focus',x===c))));
-  prev.addEventListener('click',()=>track.scrollBy({left:-260,behavior:'smooth'}));
-  next.addEventListener('click',()=>track.scrollBy({left:260,behavior:'smooth'}));
-  track.addEventListener('pointerdown',e=>{drag=true;startX=e.clientX;scrollStart=track.scrollLeft;track.classList.add('dragging');track.setPointerCapture(e.pointerId)});
-  track.addEventListener('pointermove',e=>{if(!drag)return;track.scrollLeft=scrollStart-(e.clientX-startX)});
-  track.addEventListener('pointerup',()=>{drag=false;track.classList.remove('dragging');focusCard()});
-  clear.addEventListener('click',e=>{e.preventDefault();localStorage.removeItem('collabify_recent');});
-  focusCard();
-
-  /* Deadline deck — swipe/click rotates the card and marks the current item visually complete. */
-  const deck=document.getElementById('cfDeadlineDeck');
-  const count=document.getElementById('cfDeadlineCount');
-  let cardsDeck=[...deck.querySelectorAll('.cf-deck-card')];
-  function refreshDeck(){
-    cardsDeck.forEach((c,i)=>{c.style.zIndex=String(10-i);c.classList.remove('swiping');if(i===0){c.style.transform='';c.style.opacity='';}else{c.style.transform=`translate(${i*9}px,${i*10}px) scale(${1-i*.04}) rotate(${i*2}deg)`;c.style.opacity=String(Math.max(.22,1-i*.24));}});
-    count.textContent=cardsDeck.length+' deadlines';
-  }
-  function completeTop(){
-    if(!cardsDeck.length)return;
-    const top=cardsDeck[0]; top.classList.add('swiping');
-    setTimeout(()=>{top.remove();cardsDeck.shift();refreshDeck()},360);
-  }
-  deck.addEventListener('click',e=>{if(e.target.closest('.swipe')){e.preventDefault();completeTop();}});
-  let sx=0,sy=0,draggingCard=false;
-  deck.addEventListener('pointerdown',e=>{const top=cardsDeck[0];if(!top||!top.contains(e.target))return;draggingCard=true;sx=e.clientX;sy=e.clientY;top.setPointerCapture(e.pointerId);});
-  deck.addEventListener('pointerup',e=>{if(!draggingCard)return;draggingCard=false;if(Math.abs(e.clientX-sx)>70)completeTop();});
-  refreshDeck();
-
-  /* Calendar */
-  const days=document.getElementById('cfCalendarDays'),label=document.getElementById('cfMonthLabel'),agendaLabel=document.getElementById('cfAgendaLabel');
-  let view=new Date();view.setDate(1);
-  function renderCal(){
-    const y=view.getFullYear(),m=view.getMonth();
-    label.textContent=new Intl.DateTimeFormat('id-ID',{month:'long',year:'numeric'}).format(view);
-    days.innerHTML='';
-    const first=(new Date(y,m,1).getDay()+6)%7, total=new Date(y,m+1,0).getDate(),today=new Date();
-    for(let i=0;i<first;i++)days.insertAdjacentHTML('beforeend','<span></span>');
-    for(let d=1;d<=total;d++){
-      const el=document.createElement('button');el.type='button';el.className='cf-day';el.textContent=d;
-      if(y===today.getFullYear()&&m===today.getMonth()&&d===today.getDate())el.classList.add('today');
-      if([3,8,15,21,27].includes(d))el.classList.add('has-event');
-      el.addEventListener('click',()=>{agendaLabel.textContent=`${d} ${new Intl.DateTimeFormat('id-ID',{month:'long'}).format(view)}`;});days.appendChild(el);
-    }
-  }
-  document.getElementById('cfPrevMonth').addEventListener('click',()=>{view.setMonth(view.getMonth()-1);renderCal()});
-  document.getElementById('cfNextMonth').addEventListener('click',()=>{view.setMonth(view.getMonth()+1);renderCal()});
-  renderCal();
-})();
-</script>
 <?= $this->endSection() ?>

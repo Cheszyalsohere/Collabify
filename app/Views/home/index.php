@@ -879,6 +879,56 @@
         display:none;
     }
 }
+
+/* =========================================================
+   GAMBAR HERO, DEADLINE, KALENDER, FORUM
+   ========================================================= */
+.home-art{display:flex;align-items:center;justify-content:center;min-width:0;}
+.home-art img{width:100%;max-width:540px;height:auto;display:block;}
+
+.home-alert{display:inline-flex;align-items:center;gap:8px;margin-top:14px;padding:8px 14px;border-radius:999px;
+    background:var(--home-pink-soft);color:var(--home-pink-hot);font-size:13px;font-weight:600;text-decoration:none;}
+.home-alert:hover{text-decoration:none;filter:brightness(.97);}
+
+.home-cols{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:18px;margin:8px 0 18px;}
+@media (max-width:900px){.home-cols{grid-template-columns:1fr;}}
+
+.home-box{background:var(--home-card);border:1px solid var(--home-border);border-radius:16px;padding:20px;
+    box-shadow:0 1px 2px rgba(40,60,90,.06),0 4px 8px rgba(40,60,90,.05);min-width:0;}
+.home-box-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:14px;}
+.home-box-head h2{margin:0;font-size:17px;font-weight:700;color:var(--home-text);}
+.home-cal-month{font-size:13px;font-weight:600;color:var(--home-muted);}
+.home-empty{margin:0;color:var(--home-muted);font-size:14px;line-height:1.5;max-width:52ch;}
+
+.home-deadlines,.home-feed-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;}
+.home-deadlines a,.home-feed-list a{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 13px;
+    border-radius:12px;background:var(--home-blue-soft);text-decoration:none;color:var(--home-text);min-width:0;}
+.home-deadlines a:hover,.home-feed-list a:hover{filter:brightness(.97);text-decoration:none;}
+.home-dl-main{display:flex;flex-direction:column;min-width:0;}
+.home-dl-title{font-weight:600;font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.home-dl-meta{font-size:12.5px;color:var(--home-muted);}
+.home-dl-badge{flex:0 0 auto;font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;background:var(--home-card);color:var(--home-blue-deep);}
+.home-dl-badge.is-soon{background:var(--home-pink-soft);color:var(--home-pink-hot);}
+
+.home-cal{width:100%;border-collapse:separate;border-spacing:4px;table-layout:fixed;}
+.home-cal th{font-size:11.5px;font-weight:600;color:var(--home-muted);text-align:center;padding:2px 0 6px;}
+.home-cal td{height:38px;text-align:center;vertical-align:middle;font-size:13.5px;color:var(--home-text);border-radius:10px;position:relative;}
+.home-cal td.is-empty{background:none;}
+.home-cal td.is-today{background:var(--home-blue-deep);color:#fff;font-weight:700;}
+.home-cal td.has-deadline::after{content:"";position:absolute;left:50%;bottom:5px;width:5px;height:5px;margin-left:-2.5px;border-radius:50%;background:var(--home-pink-hot);}
+.home-cal td.is-today.has-deadline::after{background:#fff;}
+.home-cal-legend{display:flex;align-items:center;gap:7px;margin:10px 0 0;font-size:12.5px;color:var(--home-muted);}
+.home-cal-legend .dot{width:8px;height:8px;border-radius:50%;background:var(--home-pink-hot);}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;}
+
+.home-feed{margin-bottom:18px;}
+.home-feed-chan{flex:0 0 auto;font-family:var(--mono);font-size:12px;font-weight:600;color:var(--home-blue-deep);}
+.home-feed-text{flex:1;min-width:0;font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.home-feed-text strong{font-weight:600;margin-right:4px;}
+.home-feed-time{flex:0 0 auto;font-size:12px;color:var(--home-muted);}
+
+/* label kecil huruf kapital di atas judul bagian: dibuang, judulnya sudah cukup jelas */
+.home-section-eyebrow{display:none;}
 </style>
 
 
@@ -893,19 +943,21 @@
 
         <div class="home-hero-main">
 
-            <div class="home-kicker">
-                COLLABIFY HOME
-            </div>
-
             <h1>
-                Semua kolaborasi,<br>
-                <span class="accent">lebih terorganisir.</span>
+                Hi, <span class="accent"><?= esc(session('name') ?? 'there') ?>!</span><br>
+                How was your day?
             </h1>
 
             <div class="home-hero-desc">
-                Kelola tugas, kelompok, template, dan aktivitas
-                perkuliahan dalam satu tempat yang lebih sederhana.
+                Kelola tugas, kelompok, template, dan obrolan kelompokmu di satu tempat.
             </div>
+
+            <?php if (! empty($overdue)): ?>
+                <a href="<?= base_url('tasks') ?>" class="home-alert">
+                    <i class="ti ti-alert-triangle"></i>
+                    <?= (int) $overdue ?> tugas melewati deadline
+                </a>
+            <?php endif; ?>
 
             <div class="home-actions">
 
@@ -930,62 +982,9 @@
         </div>
 
 
-        <!-- SUMMARY -->
-
-        <div class="home-summary">
-
-            <div class="summary-top">
-
-                <div class="summary-label">
-                    Ringkasan aktivitas
-                </div>
-
-                <div class="summary-icon">
-                    <i class="ti ti-sparkles"></i>
-                </div>
-
-            </div>
-
-            <div class="summary-content">
-
-                <div class="summary-title">
-                    Siap lanjut?
-                </div>
-
-                <div class="summary-desc">
-                    Beberapa hal yang sedang aktif di Collabify.
-                </div>
-
-            </div>
-
-            <div class="summary-stats">
-
-                <div class="summary-stat">
-
-                    <div class="summary-num">
-                        <?= number_format(count($templates ?? [])) ?>
-                    </div>
-
-                    <div class="summary-text">
-                        template terbaru
-                    </div>
-
-                </div>
-
-                <div class="summary-stat">
-
-                    <div class="summary-num">
-                        <?= number_format(count($groups ?? [])) ?>
-                    </div>
-
-                    <div class="summary-text">
-                        kelompok terbaru
-                    </div>
-
-                </div>
-
-            </div>
-
+        <!-- GAMBAR -->
+        <div class="home-art">
+            <img src="<?= base_url('assets/collabify/lets-collab.png') ?>" alt="Let's Collab Together!">
         </div>
 
     </section>
@@ -1065,6 +1064,117 @@
     <!-- =====================================================
          TEMPLATE
          ===================================================== -->
+
+    <!-- =====================================================
+         DEADLINE, KALENDER, AKTIVITAS FORUM (data asli, hanya kelompokmu)
+         ===================================================== -->
+    <?php
+        $bulanNama = ['', 'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+        $thn       = (int) date('Y');
+        $bln       = (int) date('n');
+        $hariIni   = (int) date('j');
+        $tglAwal   = mktime(0, 0, 0, $bln, 1, $thn);
+        $jmlHari   = (int) date('t', $tglAwal);
+        $mulaiDow  = (int) date('N', $tglAwal); // 1 = Senin
+    ?>
+
+    <div class="home-cols">
+
+        <section class="home-box" aria-labelledby="hDeadline">
+            <div class="home-box-head">
+                <h2 id="hDeadline">Deadline mendatang</h2>
+                <a href="<?= base_url('tasks') ?>" class="home-section-link">Semua tugas</a>
+            </div>
+
+            <?php if (empty($upcoming)): ?>
+                <p class="home-empty">Tidak ada deadline dekat. Tambahkan tugas di kelompokmu supaya muncul di sini.</p>
+            <?php else: ?>
+                <ul class="home-deadlines">
+                    <?php foreach ($upcoming as $u): ?>
+                        <?php
+                            $sisa = (int) floor((strtotime($u['deadline']) - strtotime(date('Y-m-d'))) / 86400);
+                            $label = $sisa === 0 ? 'Hari ini' : ($sisa === 1 ? 'Besok' : $sisa . ' hari lagi');
+                        ?>
+                        <li>
+                            <a href="<?= base_url('tasks/' . (int) $u['id_task']) ?>">
+                                <span class="home-dl-main">
+                                    <span class="home-dl-title"><?= esc($u['judul']) ?></span>
+                                    <span class="home-dl-meta"><?= esc($u['nama_kelompok'] ?? 'Tanpa kelompok') ?> · <?= date('d M Y', strtotime($u['deadline'])) ?></span>
+                                </span>
+                                <span class="home-dl-badge <?= $sisa <= 1 ? 'is-soon' : '' ?>"><?= $label ?></span>
+                            </a>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+            <?php endif; ?>
+        </section>
+
+        <section class="home-box" aria-labelledby="hKalender">
+            <div class="home-box-head">
+                <h2 id="hKalender">Kalender</h2>
+                <span class="home-cal-month"><?= $bulanNama[$bln] ?> <?= $thn ?></span>
+            </div>
+
+            <table class="home-cal" aria-label="Kalender <?= $bulanNama[$bln] ?> <?= $thn ?>">
+                <thead>
+                    <tr>
+                        <?php foreach (['Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab', 'Min'] as $h): ?>
+                            <th scope="col"><?= $h ?></th>
+                        <?php endforeach; ?>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                        $sel = 1 - ($mulaiDow - 1); // hari pertama kisi (bisa <= 0)
+                        while ($sel <= $jmlHari):
+                    ?>
+                        <tr>
+                            <?php for ($i = 0; $i < 7; $i++, $sel++): ?>
+                                <?php if ($sel < 1 || $sel > $jmlHari): ?>
+                                    <td class="is-empty"></td>
+                                <?php else: ?>
+                                    <?php $n = $deadlineDays[$sel] ?? 0; ?>
+                                    <td class="<?= $sel === $hariIni ? 'is-today' : '' ?> <?= $n ? 'has-deadline' : '' ?>"
+                                        <?= $n ? 'title="' . $n . ' deadline"' : '' ?>>
+                                        <span><?= $sel ?></span>
+                                        <?php if ($n): ?><i class="sr-only"><?= $n ?> deadline</i><?php endif; ?>
+                                    </td>
+                                <?php endif; ?>
+                            <?php endfor; ?>
+                        </tr>
+                    <?php endwhile; ?>
+                </tbody>
+            </table>
+            <p class="home-cal-legend"><span class="dot"></span> ada deadline</p>
+        </section>
+
+    </div>
+
+    <section class="home-box home-feed" aria-labelledby="hForum">
+        <div class="home-box-head">
+            <h2 id="hForum">Aktivitas forum</h2>
+            <a href="<?= base_url('forum') ?>" class="home-section-link">Buka forum</a>
+        </div>
+
+        <?php if (empty($activity)): ?>
+            <p class="home-empty">Belum ada obrolan di forum.</p>
+        <?php else: ?>
+            <ul class="home-feed-list">
+                <?php foreach ($activity as $a): ?>
+                    <li>
+                        <a href="<?= base_url('forum/channel/' . (int) $a['id_channel']) ?>">
+                            <span class="home-feed-chan">#<?= esc($a['nama_channel']) ?></span>
+                            <span class="home-feed-text">
+                                <strong><?= esc($a['pengirim'] ?? 'Anggota') ?></strong>
+                                <?= esc(mb_strimwidth((string) $a['message'], 0, 90, '…')) ?>
+                            </span>
+                            <span class="home-feed-time"><?= date('d M H.i', strtotime($a['created_at'])) ?></span>
+                        </a>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        <?php endif; ?>
+    </section>
 
     <div class="home-section-head">
 
