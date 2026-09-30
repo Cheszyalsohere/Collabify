@@ -510,7 +510,7 @@
 </form>
 
 
-<?php if (! empty($template['gdoc_id'])): ?>
+<?php if (! empty($template['gdoc_id']) || ! empty($template['file_path'])): ?>
 
     <!-- Buka salinan Google di tab baru: pengguna yang menyalin = pemilik dokumen -->
     <form
@@ -553,10 +553,10 @@
 
                 <?php if (empty($template['gdoc_id'])): ?>
                     <p class="text-muted small mt-3 mb-2">
-                        Template ini belum tertaut ke Google Docs, jadi "Gunakan" membuka editor di aplikasi.
+                        "Gunakan di Google Docs" untuk template file dilakukan dalam dua langkah (unduh, lalu unggah ke Drive).
                         <?= $bolehUbahGdoc
-                            ? 'Tempel tautan dokumennya di bawah supaya pengguna bisa langsung menyalinnya ke Google Docs.'
-                            : 'Minta pengunggah template menambahkan tautan Google Docs.' ?>
+                            ? 'Supaya cukup satu klik, tempel tautan dokumen Google-nya di bawah.'
+                            : 'Minta pengunggah template menambahkan tautan Google Docs kalau ingin satu klik.' ?>
                     </p>
                 <?php endif; ?>
 

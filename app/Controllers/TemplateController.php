@@ -206,9 +206,12 @@ class TemplateController extends BaseController
             ->where('status', 'approved')
             ->first();
 
-        if (! $template || empty($template['gdoc_id']) || empty($template['gdoc_type'])) {
+        $punyaTautan = $template && ! empty($template['gdoc_id']) && ! empty($template['gdoc_type']);
+        $punyaFile   = $template && ! empty($template['file_path']);
+
+        if (! $punyaTautan && ! $punyaFile) {
             return redirect()->to('/templates')
-                ->with('error', 'Template ini belum punya tautan Google Docs.');
+                ->with('error', 'Template ini belum punya file atau tautan Google Docs.');
         }
 
         (new \App\Models\WorkspaceHistoryModel())->insert([
@@ -218,9 +221,49 @@ class TemplateController extends BaseController
             'created_at'  => date('Y-m-d H:i:s'),
         ]);
 
-        return redirect()->to(
-            'https://docs.google.com/' . $template['gdoc_type'] . '/d/' . $template['gdoc_id'] . '/copy'
-        );
+        if ($punyaTautan) {
+            return redirect()->to(
+                'https://docs.google.com/' . $template['gdoc_type'] . '/d/' . $template['gdoc_id'] . '/copy'
+            );
+        }
+
+        // Template berupa file (pdf/docx/pptx/xlsx): unduh lalu unggah ke Drive pengguna.
+        return redirect()->to('/templates/' . (int) $template['id_template'] . '/ke-gdocs');
+    }
+
+    /**
+     * Panduan 2 langkah untuk memakai template FILE di Google Docs/Sheets/Slides.
+     * (Tanpa API Google: file diunduh, lalu dibuka dengan Google lewat Drive milik pengguna,
+     * sehingga pengguna yang menjadi pemilik dokumennya.)
+     *
+     * Route: templates/(:num)/ke-gdocs
+     */
+    public function keGdocs($idTemplate)
+    {
+        $template = $this->templateModel
+            ->where('id_template', (int) $idTemplate)
+            ->where('status', 'approved')
+            ->first();
+
+        if (! $template || empty($template['file_path'])) {
+            return redirect()->to('/templates')->with('error', 'Template tidak ditemukan.');
+        }
+
+        $ext = strtolower(pathinfo($template['file_path'], PATHINFO_EXTENSION));
+
+        $app = [
+            'docx' => ['Google Dokumen (Docs)', 'Google Dokumen'],
+            'pdf'  => ['Google Dokumen (Docs)', 'Google Dokumen'],
+            'pptx' => ['Google Slide', 'Google Slide'],
+            'xlsx' => ['Google Spreadsheet (Sheets)', 'Google Spreadsheet'],
+        ][$ext] ?? null;
+
+        return view('templates/ke_gdocs', [
+            'title'    => 'Gunakan di Google — COLLABIFY',
+            'template' => $template,
+            'ext'      => $ext,
+            'app'      => $app,
+        ]);
     }
 
 public function show($idTemplate)

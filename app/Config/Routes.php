@@ -66,6 +66,7 @@ $routes->group('', ['filter' => 'auth'], static function ($routes) {
     $routes->get('templates/(:num)/use', 'WorkspaceController::createFromTemplate/$1');
     $routes->post('templates/(:num)/gunakan-google', 'TemplateController::gunakanGoogle/$1');
     $routes->post('templates/(:num)/gdoc', 'TemplateController::setGoogleDoc/$1');
+    $routes->get('templates/(:num)/ke-gdocs', 'TemplateController::keGdocs/$1');
 
     // Workspaces
     $routes->get('workspaces', 'WorkspaceController::index');
