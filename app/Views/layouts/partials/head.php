@@ -227,6 +227,58 @@
   ::-webkit-scrollbar{width:11px;height:11px;}
   ::-webkit-scrollbar-thumb{background:#dcdcd6;border:3px solid var(--paper);border-radius:10px;}
   ::-webkit-scrollbar-thumb:hover{background:#c8c8c2;}
+
+  /* ══════════ GLASS — satu tampilan kaca untuk semua halaman ══════════
+     Kartu sebelumnya sudah semi-transparan, tetapi latar halaman polos (krem),
+     sehingga tampak seperti kotak putih. Sekarang latarnya gradasi berwarna
+     (biru–pink–lilac, seperti landing/dashboard) dan semua kartu, sidebar, serta
+     navbar memakai efek kaca (blur + tepi terang). */
+  /* gradasi ditaruh di .wrapper agar menyatu di belakang sidebar, navbar, dan isi halaman */
+  body.hold-transition .wrapper,body .wrapper{
+    background:
+      radial-gradient(60% 46% at 4% 0%,   rgba(94,196,255,.40) 0%, rgba(94,196,255,0) 70%),
+      radial-gradient(52% 42% at 100% 20%, rgba(255,140,198,.32) 0%, rgba(255,140,198,0) 68%),
+      radial-gradient(56% 46% at 42% 100%, rgba(183,156,255,.28) 0%, rgba(183,156,255,0) 70%),
+      linear-gradient(180deg,#fff6fb 0%,#eef7ff 58%,#fdf2fb 100%)!important;
+  }
+  body .content-wrapper{background:transparent!important;background-image:none!important;}
+  body .content-wrapper .card,
+  body .content-wrapper .lis-card,
+  body .content-wrapper .group-card,
+  body .content-wrapper .task-card,
+  body .content-wrapper .template-card,
+  body .content-wrapper .workspace-card,
+  body .content-wrapper .profile-card,
+  body .content-wrapper .profile-info-card,
+  body .content-wrapper .gh-item{
+    background:rgba(255,255,255,.52)!important;
+    border:1px solid rgba(255,255,255,.82)!important;
+    -webkit-backdrop-filter:blur(18px) saturate(150%)!important;
+    backdrop-filter:blur(18px) saturate(150%)!important;
+    box-shadow:0 12px 34px rgba(89,119,151,.10),inset 0 1px 0 rgba(255,255,255,.85)!important;
+  }
+  /* catatan tetap berwarna, tetapi tembus pandang */
+  body .content-wrapper .note-card{
+    background:color-mix(in srgb,var(--note-bg,#fff) 58%,transparent)!important;
+    border:1px solid rgba(255,255,255,.82)!important;
+    -webkit-backdrop-filter:blur(18px) saturate(150%)!important;
+    backdrop-filter:blur(18px) saturate(150%)!important;
+  }
+  body .content-wrapper .card-header,
+  body .content-wrapper .card-footer{background:transparent!important;border-color:rgba(255,255,255,.7)!important;}
+  body .content-wrapper .form-control,
+  body .content-wrapper .custom-select{background:rgba(255,255,255,.72)!important;}
+  body .main-sidebar{
+    background:rgba(255,255,255,.62)!important;
+    -webkit-backdrop-filter:blur(20px) saturate(150%);
+    backdrop-filter:blur(20px) saturate(150%);
+    border-right:1px solid rgba(255,255,255,.8)!important;
+  }
+  body .main-header{
+    background:rgba(255,255,255,.55)!important;
+    -webkit-backdrop-filter:blur(20px) saturate(150%);
+    backdrop-filter:blur(20px) saturate(150%);
+  }
 </style>
 
 <link rel="stylesheet" href="<?= base_url('assets/css/collabify-ui.css') ?>">

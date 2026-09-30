@@ -84,10 +84,71 @@ class WorkspaceController extends BaseController
             )
             ->findAll();
 
+        $history = (new \App\Models\WorkspaceHistoryModel())
+            ->select('workspace_history.*, templates.gdoc_type, templates.gdoc_id')
+            ->join('templates', 'templates.id_template = workspace_history.id_template', 'left')
+            ->where('workspace_history.id_user', (int) $idUser)
+            ->orderBy('workspace_history.created_at', 'DESC')
+            ->orderBy('workspace_history.id_history', 'DESC')
+            ->findAll();
+
         return view('workspaces/index', [
             'title'      => 'Workspace — COLLABIFY',
             'workspaces' => $workspaces,
+            'history'    => $history,
         ]);
+    }
+
+    /**
+     * Simpan tautan dokumen Google milik pengguna ke satu baris riwayat.
+     * Route: workspaces/riwayat/(:num)/link  (POST)
+     */
+    public function saveHistoryLink($idHistory)
+    {
+        $model = new \App\Models\WorkspaceHistoryModel();
+        $row   = $model->where('id_history', (int) $idHistory)
+            ->where('id_user', (int) session()->get('id_user'))
+            ->first();
+
+        if (! $row) {
+            return redirect()->to('/workspaces')->with('error', 'Riwayat tidak ditemukan.');
+        }
+
+        $url = trim((string) $this->request->getPost('doc_url'));
+
+        if ($url === '') {
+            $model->update($row['id_history'], ['doc_url' => null]);
+
+            return redirect()->to('/workspaces')->with('success', 'Tautan dihapus.');
+        }
+
+        $parsed = \App\Controllers\TemplateController::parseGoogleDocUrl($url);
+
+        if ($parsed === null) {
+            return redirect()->to('/workspaces')
+                ->with('error', 'Tautan harus alamat dokumen dari docs.google.com (Docs, Sheets, atau Slides).');
+        }
+
+        // Disimpan dalam bentuk baku (tanpa parameter tambahan).
+        $model->update($row['id_history'], [
+            'doc_url' => 'https://docs.google.com/' . $parsed['type'] . '/d/' . $parsed['id'] . '/edit',
+        ]);
+
+        return redirect()->to('/workspaces')->with('success', 'Tautan Google Docs tersimpan.');
+    }
+
+    /**
+     * Hapus satu baris riwayat (milik sendiri).
+     * Route: workspaces/riwayat/(:num)/hapus  (POST)
+     */
+    public function deleteHistory($idHistory)
+    {
+        (new \App\Models\WorkspaceHistoryModel())
+            ->where('id_history', (int) $idHistory)
+            ->where('id_user', (int) session()->get('id_user'))
+            ->delete();
+
+        return redirect()->to('/workspaces')->with('success', 'Riwayat dihapus.');
     }
 
 

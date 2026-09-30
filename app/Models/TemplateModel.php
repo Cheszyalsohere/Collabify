@@ -20,5 +20,7 @@ class TemplateModel extends Model
         'uploaded_by',
         'status',
         'downloads_count',
+        'gdoc_type',
+        'gdoc_id',
     ];
 }

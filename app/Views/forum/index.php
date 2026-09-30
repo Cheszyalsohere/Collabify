@@ -928,6 +928,40 @@ $communityChannels = $communityChannels ?? [];
                 font-size: 12px;
             }
         }
+    
+        /* Tombol keluar dari forum — halaman forum tidak punya sidebar aplikasi,
+           jadi tanpa ini pengguna "terkunci" sampai memilih sebuah room. */
+        .forum-exit {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            margin-bottom: 14px;
+            padding: 8px 13px;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            background: var(--primary-soft, #FFF0F2);
+            color: var(--primary-dark, #C98F9B);
+            font-size: 12.5px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform .15s ease, box-shadow .15s ease;
+        }
+
+        .forum-exit:hover {
+            transform: translateX(-2px);
+            box-shadow: 0 6px 16px rgba(94,145,196,.16);
+            text-decoration: none;
+            color: var(--primary-dark, #C98F9B);
+        }
+
+        .forum-exit-bottom {
+            display: flex;
+            justify-content: center;
+            margin: 10px 14px 16px;
+            padding: 11px 14px;
+            border-radius: 12px;
+            font-size: 13px;
+        }
     </style>
 </head>
 
@@ -942,6 +976,10 @@ $communityChannels = $communityChannels ?? [];
     <aside class="forum-sidebar">
 
         <div class="brand">
+            <a href="<?= base_url('home') ?>" class="forum-exit" title="Kembali ke beranda">
+                <i class="ti ti-arrow-left"></i>
+                Keluar dari Forum
+            </a>
             <h2>COLLABIFY</h2>
             <span>FORUM KOLABORASI</span>
         </div>

@@ -32,8 +32,11 @@ class Home extends BaseController
                 FROM template_ratings GROUP BY id_template
             ) r ON r.id_template = t.id_template
             LEFT JOIN (
-                SELECT id_template, COUNT(*) AS total_pakai
-                FROM template_workspaces GROUP BY id_template
+                SELECT id_template, COUNT(*) AS total_pakai FROM (
+                    SELECT id_template FROM template_workspaces
+                    UNION ALL
+                    SELECT id_template FROM workspace_history WHERE id_template IS NOT NULL
+                ) pakai GROUP BY id_template
             ) w ON w.id_template = t.id_template
             WHERE t.status = 'approved'
         ")->getResultArray();

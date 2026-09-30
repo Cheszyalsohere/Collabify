@@ -50,6 +50,22 @@ class TemplateController extends BaseController
 
     public function store()
     {
+        $linkInput = trim((string) $this->request->getPost('google_doc_url'));
+        $gdoc      = $linkInput !== '' ? self::parseGoogleDocUrl($linkInput) : null;
+
+        if ($linkInput !== '' && $gdoc === null) {
+            return redirect()->back()
+                ->withInput()
+                ->with('error', 'Tautan Google Docs tidak valid. Tempel alamat dokumen dari docs.google.com (Docs, Sheets, atau Slides).');
+        }
+
+        $fileRules = [
+            'max_size[file,20480]',
+            'ext_in[file,pdf,docx,pptx,xlsx,sav]',
+        ];
+        // File wajib hanya kalau tidak ada tautan Google.
+        array_unshift($fileRules, $gdoc === null ? 'uploaded[file]' : 'permit_empty');
+
         $rules = [
             'judul' => 'required|min_length[3]|max_length[200]',
 
@@ -59,11 +75,7 @@ class TemplateController extends BaseController
 
             'file' => [
                 'label' => 'File Template',
-                'rules' => [
-                    'uploaded[file]',
-                    'max_size[file,20480]',
-                    'ext_in[file,pdf,docx,pptx,xlsx,sav]',
-                ],
+                'rules' => $fileRules,
             ],
         ];
 
@@ -73,33 +85,30 @@ class TemplateController extends BaseController
                 ->with('errors', $this->validator->getErrors());
         }
 
-        $file = $this->request->getFile('file');
+        $filePath = null;
+        $file     = $this->request->getFile('file');
 
-        if (! $file || ! $file->isValid()) {
-            return redirect()->back()
-                ->withInput()
-                ->with('error', 'File template tidak valid.');
+        if ($file && $file->getError() !== UPLOAD_ERR_NO_FILE) {
+            if (! $file->isValid()) {
+                return redirect()->back()
+                    ->withInput()
+                    ->with('error', 'File template tidak valid.');
+            }
+
+            /*
+             * Folder penyimpanan: writable/uploads/templates/
+             * Nama file acak agar tidak bentrok antar pengguna.
+             */
+            $uploadPath = WRITEPATH . 'uploads/templates';
+
+            if (! is_dir($uploadPath)) {
+                mkdir($uploadPath, 0777, true);
+            }
+
+            $newName = $file->getRandomName();
+            $file->move($uploadPath, $newName);
+            $filePath = 'uploads/templates/' . $newName;
         }
-
-        /*
-         * Folder penyimpanan:
-         * writable/uploads/templates/
-         */
-        $uploadPath = WRITEPATH . 'uploads/templates';
-
-        if (! is_dir($uploadPath)) {
-            mkdir($uploadPath, 0777, true);
-        }
-
-        /*
-         * Nama file dibuat acak agar tidak bentrok
-         * dengan file milik pengguna lain.
-         */
-        $newName = $file->getRandomName();
-
-        $file->move($uploadPath, $newName);
-
-        $idUser = session()->get('id_user');
 
         $this->templateModel->insert([
             'judul'           => trim($this->request->getPost('judul')),
@@ -107,8 +116,10 @@ class TemplateController extends BaseController
             'deskripsi'       => trim(
                 $this->request->getPost('deskripsi') ?? ''
             ),
-            'file_path'       => 'uploads/templates/' . $newName,
-            'uploaded_by'     => $idUser,
+            'file_path'       => $filePath,
+            'gdoc_type'       => $gdoc['type'] ?? null,
+            'gdoc_id'         => $gdoc['id'] ?? null,
+            'uploaded_by'     => session()->get('id_user'),
             'status'          => 'approved',
             'downloads_count' => 0,
         ]);
@@ -118,6 +129,52 @@ class TemplateController extends BaseController
                 'success',
                 'Template berhasil diupload dan langsung tersedia.'
             );
+    }
+
+    /**
+     * Kenali tautan Google Docs/Sheets/Slides dan ambil jenis + ID dokumennya.
+     * Hanya https://docs.google.com yang diterima.
+     *
+     * @return array{type:string,id:string}|null
+     */
+    public static function parseGoogleDocUrl(string $url): ?array
+    {
+        if (preg_match('#^https://docs\.google\.com/(document|spreadsheets|presentation)/d/([A-Za-z0-9_-]{15,120})(?:[/?\#]|$)#', trim($url), $m)) {
+            return ['type' => $m[1], 'id' => $m[2]];
+        }
+
+        return null;
+    }
+
+    /**
+     * "Gunakan" → buka tautan SALIN Google di tab baru.
+     * Google meminta pengguna menyalin ke Drive-nya sendiri, jadi pengguna itu
+     * yang menjadi pemilik salinan dan dokumen template asli tidak bisa diubah.
+     *
+     * Route: templates/(:num)/gunakan-google  (POST)
+     */
+    public function gunakanGoogle($idTemplate)
+    {
+        $template = $this->templateModel
+            ->where('id_template', (int) $idTemplate)
+            ->where('status', 'approved')
+            ->first();
+
+        if (! $template || empty($template['gdoc_id']) || empty($template['gdoc_type'])) {
+            return redirect()->to('/templates')
+                ->with('error', 'Template ini belum punya tautan Google Docs.');
+        }
+
+        (new \App\Models\WorkspaceHistoryModel())->insert([
+            'id_user'     => (int) session()->get('id_user'),
+            'id_template' => (int) $template['id_template'],
+            'judul'       => $template['judul'],
+            'created_at'  => date('Y-m-d H:i:s'),
+        ]);
+
+        return redirect()->to(
+            'https://docs.google.com/' . $template['gdoc_type'] . '/d/' . $template['gdoc_id'] . '/copy'
+        );
     }
 
 public function show($idTemplate)

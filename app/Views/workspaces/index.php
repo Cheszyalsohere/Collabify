@@ -46,6 +46,109 @@
 <?php endif; ?>
 
 
+<?php if (! empty($history)): ?>
+
+    <div class="workspace-list-header">
+        <div>
+            <span class="workspace-list-label">RIWAYAT GOOGLE DOCS</span>
+            <span class="workspace-count"><?= count($history) ?> dokumen</span>
+        </div>
+    </div>
+
+    <div class="gh-list">
+
+        <?php foreach ($history as $h): ?>
+
+            <?php
+                $srcUrl = ! empty($h['gdoc_id'])
+                    ? 'https://docs.google.com/' . $h['gdoc_type'] . '/d/' . $h['gdoc_id'] . '/edit'
+                    : null;
+            ?>
+
+            <div class="gh-item">
+
+                <div class="gh-main">
+                    <div class="gh-title">
+                        <i class="ti ti-brand-google-drive"></i>
+                        <?= esc($h['judul']) ?>
+                    </div>
+                    <div class="gh-meta">
+                        Digunakan <?= date('d M Y H:i', strtotime($h['created_at'])) ?>
+                        <?php if ($srcUrl): ?>
+                            · <a href="<?= esc($srcUrl, 'attr') ?>" target="_blank" rel="noopener noreferrer">template asli</a>
+                        <?php endif; ?>
+                    </div>
+                </div>
+
+                <form
+                    action="<?= base_url('workspaces/riwayat/' . (int) $h['id_history'] . '/link') ?>"
+                    method="post"
+                    class="gh-link-form"
+                >
+                    <?= csrf_field() ?>
+                    <input
+                        type="url"
+                        name="doc_url"
+                        class="gh-input"
+                        maxlength="500"
+                        value="<?= esc($h['doc_url'] ?? '', 'attr') ?>"
+                        placeholder="Tempel link Google Docs-mu setelah menyalin"
+                    >
+                    <button type="submit" class="gh-btn">Simpan</button>
+                    <?php if (! empty($h['doc_url'])): ?>
+                        <a href="<?= esc($h['doc_url'], 'attr') ?>" target="_blank" rel="noopener noreferrer" class="gh-btn gh-btn-open">
+                            <i class="ti ti-external-link"></i> Buka
+                        </a>
+                    <?php endif; ?>
+                </form>
+
+                <form
+                    action="<?= base_url('workspaces/riwayat/' . (int) $h['id_history'] . '/hapus') ?>"
+                    method="post"
+                    onsubmit="return confirm('Hapus dari riwayat?');"
+                >
+                    <?= csrf_field() ?>
+                    <button type="submit" class="gh-btn gh-btn-del" title="Hapus dari riwayat"><i class="ti ti-trash"></i></button>
+                </form>
+
+            </div>
+
+        <?php endforeach; ?>
+
+    </div>
+
+    <p class="gh-hint">
+        Dokumen hasil salinan ada di Google Drive-mu. Tempel linknya di sini supaya riwayat ini menjadi daftar dokumen yang bisa diklik.
+    </p>
+
+<?php endif; ?>
+
+
+<style>
+.gh-list{display:flex;flex-direction:column;gap:10px;margin-bottom:8px;}
+.gh-item{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:14px 16px;border-radius:16px;
+  background:rgba(255,255,255,.62);border:1px solid rgba(255,255,255,.85);
+  -webkit-backdrop-filter:blur(18px) saturate(140%);backdrop-filter:blur(18px) saturate(140%);
+  box-shadow:0 10px 30px rgba(89,119,151,.08);}
+.gh-main{flex:1 1 220px;min-width:0;}
+.gh-title{font-weight:600;color:#30323A;font-size:14.5px;display:flex;align-items:center;gap:7px;}
+.gh-title i{color:#5E91C4;font-size:18px;}
+.gh-meta{font-size:12px;color:#77777D;margin-top:2px;}
+.gh-meta a{color:#5E91C4;}
+.gh-link-form{display:flex;align-items:center;gap:8px;flex:2 1 320px;min-width:0;}
+.gh-input{flex:1;min-width:0;height:38px;padding:0 12px;border-radius:11px;border:1px solid #D9DBDE;background:rgba(255,255,255,.8);font-size:13px;}
+.gh-input:focus{outline:none;border-color:#5E91C4;box-shadow:0 0 0 3px rgba(94,145,196,.15);}
+.gh-btn{height:38px;padding:0 14px;border-radius:11px;border:0;background:#5E91C4;color:#fff;font-weight:600;font-size:13px;
+  display:inline-flex;align-items:center;gap:5px;cursor:pointer;text-decoration:none;}
+.gh-btn:hover{background:#4A7DB0;color:#fff;}
+.gh-btn-open{background:#EAF3FA;color:#5E91C4;}
+.gh-btn-open:hover{background:#D5E6F5;color:#4A7DB0;}
+.gh-btn-del{background:transparent;color:#B64C59;padding:0 10px;}
+.gh-btn-del:hover{background:#FCE8EC;color:#B64C59;}
+.gh-hint{font-size:12px;color:#77777D;margin:0 0 26px;}
+</style>
+
+
 <?php if (! empty($workspaces)): ?>
 
     <div class="workspace-list-header">

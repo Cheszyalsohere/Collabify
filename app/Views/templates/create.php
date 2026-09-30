@@ -160,6 +160,37 @@
                     </div>
 
                     <!-- =========================
+                             TAUTAN GOOGLE DOCS
+                    ========================== -->
+
+                    <div class="form-group">
+
+                        <label for="google_doc_url">
+                            Tautan Google Docs
+                            <span class="text-muted font-weight-normal">(opsional)</span>
+                        </label>
+
+                        <input
+                            type="url"
+                            name="google_doc_url"
+                            id="google_doc_url"
+                            class="form-control"
+                            maxlength="500"
+                            value="<?= esc(old('google_doc_url')) ?>"
+                            placeholder="https://docs.google.com/document/d/..."
+                        >
+
+                        <small class="text-muted">
+                            Kalau diisi, tombol <strong>Gunakan</strong> membuka dokumen ini di tab baru dan
+                            pengguna diminta <strong>membuat salinan ke Drive miliknya sendiri</strong>
+                            (pengguna jadi pemilik salinan, template asli tetap aman).
+                            Di Google Docs: <em>Bagikan → Siapa saja yang memiliki link → <strong>Pelihat (Viewer)</strong></em>.
+                            Mendukung Docs, Sheets, dan Slides.
+                        </small>
+
+                    </div>
+
+                    <!-- =========================
                              FILE TEMPLATE
                     ========================== -->
 
@@ -167,6 +198,7 @@
 
     <label for="file">
         File Template
+        <span class="text-muted font-weight-normal">(wajib jika tidak ada tautan Google Docs)</span>
     </label>
 
     <div class="custom-file">
@@ -177,7 +209,6 @@
             id="file"
             class="custom-file-input"
             accept=".pdf,.docx,.pptx,.xlsx,.sav"
-            required
         >
 
         <label

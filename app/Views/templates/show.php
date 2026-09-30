@@ -511,17 +511,39 @@
 </form>
 
 
-<a
-    href="<?= base_url(
-        'templates/' .
-        $template['id_template'] .
-        '/use'
-    ) ?>"
-    class="btn btn-outline-success"
->
-    <i class="fas fa-edit mr-1"></i>
-    Gunakan Template
-</a>
+<?php if (! empty($template['gdoc_id'])): ?>
+
+    <!-- Buka salinan Google di tab baru: pengguna yang menyalin = pemilik dokumen -->
+    <form
+        action="<?= base_url('templates/' . $template['id_template'] . '/gunakan-google') ?>"
+        method="post"
+        target="_blank"
+        class="d-inline"
+    >
+        <?= csrf_field() ?>
+        <button type="submit" class="btn btn-primary">
+            <i class="fab fa-google-drive mr-1"></i>
+            Gunakan di Google Docs
+        </button>
+    </form>
+
+<?php endif; ?>
+
+<?php if (! empty($template['file_path'])): ?>
+
+    <a
+        href="<?= base_url(
+            'templates/' .
+            $template['id_template'] .
+            '/use'
+        ) ?>"
+        class="btn btn-outline-success"
+    >
+        <i class="fas fa-edit mr-1"></i>
+        <?= ! empty($template['gdoc_id']) ? 'Buka di editor aplikasi' : 'Gunakan Template' ?>
+    </a>
+
+<?php endif; ?>
 
                 </div>
 
