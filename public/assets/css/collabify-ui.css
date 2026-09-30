@@ -1,0 +1,670 @@
+/* =====================================================
+   COLLABIFY SIDEBAR
+   BLUE / PINK ALTERNATING
+   ===================================================== */
+
+
+/* =====================================================
+   DEFAULT HOVER
+   ===================================================== */
+
+.main-sidebar .nav-sidebar .nav-link:hover {
+
+    background: #F7F7F7 !important;
+
+    color: #30323A !important;
+
+}
+
+
+/* =====================================================
+   BLUE ITEMS
+   ===================================================== */
+
+
+/* Dashboard */
+
+.main-sidebar .nav-sidebar .nav-link[href*="/dashboard"].active,
+.main-sidebar .nav-sidebar .nav-link[href*="/dashboard"]:hover {
+
+    background: #EAF3FA !important;
+
+    color: #5E91C4 !important;
+
+}
+
+
+/* Tugas */
+
+.main-sidebar .nav-sidebar .nav-link[href*="/tasks"].active,
+.main-sidebar .nav-sidebar .nav-link[href*="/tasks"]:hover {
+
+    background: #EAF3FA !important;
+
+    color: #5E91C4 !important;
+
+}
+
+
+/* Template */
+
+.main-sidebar .nav-sidebar .nav-link[href*="/templates"].active,
+.main-sidebar .nav-sidebar .nav-link[href*="/templates"]:hover {
+
+    background: #EAF3FA !important;
+
+    color: #5E91C4 !important;
+
+}
+
+
+/* Forum */
+
+.main-sidebar .nav-sidebar .nav-link[href*="/forum"].active,
+.main-sidebar .nav-sidebar .nav-link[href*="/forum"]:hover {
+
+    background: #EAF3FA !important;
+
+    color: #5E91C4 !important;
+
+}
+
+
+/* Profil */
+
+.main-sidebar .nav-sidebar .nav-link[href*="/profil"].active,
+.main-sidebar .nav-sidebar .nav-link[href*="/profil"]:hover {
+
+    background: #EAF3FA !important;
+
+    color: #5E91C4 !important;
+
+}
+
+
+/* =====================================================
+   PINK ITEMS
+   ===================================================== */
+
+
+/* Kelompok */
+
+.main-sidebar .nav-sidebar .nav-link[href*="/groups"].active,
+.main-sidebar .nav-sidebar .nav-link[href*="/groups"]:hover {
+
+    background: #FFF0F1 !important;
+
+    color: #FF677D !important;
+
+}
+
+
+/* Catatan */
+
+.main-sidebar .nav-sidebar .nav-link[href*="/notes"].active,
+.main-sidebar .nav-sidebar .nav-link[href*="/notes"]:hover {
+
+    background: #FFF0F1 !important;
+
+    color: #FF677D !important;
+
+}
+
+
+/* Workspace */
+
+.main-sidebar .nav-sidebar .nav-link[href*="workspaces"].active,
+.main-sidebar .nav-sidebar .nav-link[href*="workspaces"]:hover {
+
+    background: #FFF0F1 !important;
+
+    color: #FF677D !important;
+
+}
+
+
+/* Spin */
+
+.main-sidebar .nav-sidebar .nav-link[href*="/spin"].active,
+.main-sidebar .nav-sidebar .nav-link[href*="/spin"]:hover {
+
+    background: #FFF0F1 !important;
+
+    color: #FF677D !important;
+
+}
+
+
+/* Logout */
+
+.main-sidebar .nav-sidebar .nav-link[href*="/logout"].active,
+.main-sidebar .nav-sidebar .nav-link[href*="/logout"]:hover {
+
+    background: #FFF0F1 !important;
+
+    color: #FF677D !important;
+
+}
+
+
+/* =====================================================
+   DARK MODE — GLOBAL
+   ===================================================== */
+
+body.collabify-dark {
+
+    background: #181A1F !important;
+
+    color: #F1F2F4 !important;
+
+}
+
+
+/* =====================================================
+   MAIN CONTENT
+   ===================================================== */
+
+body.collabify-dark .content-wrapper {
+
+    background: #181A1F !important;
+
+    color: #F1F2F4 !important;
+
+}
+
+
+body.collabify-dark .content-header {
+
+    background: #181A1F !important;
+
+}
+
+
+/* =====================================================
+   MAIN HEADINGS
+   ===================================================== */
+
+body.collabify-dark .content-wrapper h1,
+body.collabify-dark .content-wrapper h2,
+body.collabify-dark .content-wrapper h3,
+body.collabify-dark .content-wrapper h4,
+body.collabify-dark .content-wrapper h5,
+body.collabify-dark .content-wrapper h6 {
+
+    color: #F1F2F4 !important;
+
+}
+
+
+/* =====================================================
+   MAIN BODY TEXT
+   ===================================================== */
+
+body.collabify-dark .content-wrapper .text-muted {
+
+    color: #858993 !important;
+
+}
+
+
+/* =====================================================
+   GLASS CARDS
+   ===================================================== */
+
+body.collabify-dark .cf-card,
+body.collabify-dark .cf-card-inner,
+body.collabify-dark .task-card,
+body.collabify-dark .template-card,
+body.collabify-dark .workspace-card,
+body.collabify-dark .group-card,
+body.collabify-dark .profile-card,
+body.collabify-dark .profile-info-card {
+
+    background:
+        rgba(34, 37, 43, .94) !important;
+
+    border-color:
+        rgba(255,255,255,.075) !important;
+
+    color:
+        #F1F2F4 !important;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.20),
+        inset 0 1px 0 rgba(255,255,255,.025) !important;
+
+}
+
+
+/* =====================================================
+   NOTE CARDS
+   Keep sticky-note color visible but darker
+   ===================================================== */
+
+body.collabify-dark .note-card {
+
+    border-color:
+        rgba(255,255,255,.08) !important;
+
+    color:
+        #F1F2F4 !important;
+
+    box-shadow:
+        0 10px 28px rgba(0,0,0,.20),
+        inset 0 1px 0 rgba(255,255,255,.025) !important;
+
+}
+
+
+/* =====================================================
+   CARD HEADINGS
+   ===================================================== */
+
+body.collabify-dark .cf-card h1,
+body.collabify-dark .cf-card h2,
+body.collabify-dark .cf-card h3,
+body.collabify-dark .cf-card h4,
+body.collabify-dark .cf-card h5,
+body.collabify-dark .cf-card h6,
+
+body.collabify-dark .task-card h1,
+body.collabify-dark .task-card h2,
+body.collabify-dark .task-card h3,
+body.collabify-dark .task-card h4,
+body.collabify-dark .task-card h5,
+body.collabify-dark .task-card h6,
+
+body.collabify-dark .template-card h1,
+body.collabify-dark .template-card h2,
+body.collabify-dark .template-card h3,
+
+body.collabify-dark .workspace-card h1,
+body.collabify-dark .workspace-card h2,
+body.collabify-dark .workspace-card h3,
+
+body.collabify-dark .group-card h1,
+body.collabify-dark .group-card h2,
+body.collabify-dark .group-card h3,
+
+body.collabify-dark .profile-card h1,
+body.collabify-dark .profile-card h2,
+body.collabify-dark .profile-card h3 {
+
+    color: #F1F2F4 !important;
+
+}
+
+
+/* =====================================================
+   CARD PARAGRAPH
+   ===================================================== */
+
+body.collabify-dark .cf-card p,
+body.collabify-dark .task-card p,
+body.collabify-dark .template-card p,
+body.collabify-dark .workspace-card p,
+body.collabify-dark .group-card p,
+body.collabify-dark .profile-card p {
+
+    color: #A7AAB2 !important;
+
+}
+
+
+/* =====================================================
+   GENERIC ADMINLTE CARDS
+   ===================================================== */
+
+body.collabify-dark .card,
+body.collabify-dark .small-box,
+body.collabify-dark .info-box,
+body.collabify-dark .callout {
+
+    background: #22252B !important;
+
+    border-color: #343841 !important;
+
+    color: #F1F2F4 !important;
+
+}
+
+
+/* =====================================================
+   FORM
+   ===================================================== */
+
+body.collabify-dark input,
+body.collabify-dark textarea,
+body.collabify-dark select {
+
+    background: #181A1F !important;
+
+    border-color: #3C414B !important;
+
+    color: #F1F2F4 !important;
+
+}
+
+
+body.collabify-dark input::placeholder,
+body.collabify-dark textarea::placeholder {
+
+    color: #777C86 !important;
+
+}
+
+
+body.collabify-dark input:focus,
+body.collabify-dark textarea:focus,
+body.collabify-dark select:focus {
+
+    background: #202329 !important;
+
+    border-color: #79A9D8 !important;
+
+    color: #F1F2F4 !important;
+
+}
+
+
+/* =====================================================
+   TABLE
+   ===================================================== */
+
+body.collabify-dark table {
+
+    color: #F1F2F4 !important;
+
+}
+
+
+body.collabify-dark table td,
+body.collabify-dark table th {
+
+    border-color: #343841 !important;
+
+}
+
+
+/* =====================================================
+   DIVIDER
+   ===================================================== */
+
+body.collabify-dark hr {
+
+    border-color: #343841 !important;
+
+}
+
+
+/* =====================================================
+   SECONDARY BUTTON
+   ===================================================== */
+
+body.collabify-dark .btn-light,
+body.collabify-dark .btn-secondary {
+
+    background: #292C32 !important;
+
+    border-color: #3C414B !important;
+
+    color: #F1F2F4 !important;
+
+}
+
+
+body.collabify-dark .btn-light:hover,
+body.collabify-dark .btn-secondary:hover {
+
+    background: #343841 !important;
+
+}
+
+
+/* =====================================================
+   PROFILE
+   ===================================================== */
+
+body.collabify-dark .profile-card,
+body.collabify-dark .profile-info-card {
+
+    background:
+        rgba(34,37,43,.94) !important;
+
+    border-color:
+        #343841 !important;
+
+}
+
+
+body.collabify-dark .profile-name,
+body.collabify-dark .profile-title,
+body.collabify-dark .profile-info-title,
+body.collabify-dark .profile-field label {
+
+    color: #F1F2F4 !important;
+
+}
+
+
+body.collabify-dark .profile-subtitle,
+body.collabify-dark .profile-info-text {
+
+    color: #A7AAB2 !important;
+
+}
+
+
+/* =====================================================
+   DARK SIDEBAR
+   ===================================================== */
+
+body.collabify-dark .main-sidebar {
+
+    background: #202329 !important;
+
+    border-right: 1px solid #343841;
+
+}
+
+
+body.collabify-dark .main-sidebar .brand-link {
+
+    background: #202329 !important;
+
+    border-bottom-color: #343841 !important;
+
+}
+
+
+body.collabify-dark .main-sidebar .brand-text {
+
+    color: #F1F2F4 !important;
+
+}
+
+
+body.collabify-dark .main-sidebar .nav-header {
+
+    color: #858993 !important;
+
+}
+
+
+body.collabify-dark .main-sidebar .nav-sidebar .nav-link {
+
+    color: #A7AAB2 !important;
+
+}
+
+
+/* =====================================================
+   DARK SIDEBAR HOVER
+   ===================================================== */
+
+body.collabify-dark .main-sidebar .nav-sidebar .nav-link:hover {
+
+    background: #292C32 !important;
+
+    color: #F1F2F4 !important;
+
+}
+
+
+/* =====================================================
+   DARK BLUE SIDEBAR ITEMS
+   ===================================================== */
+
+body.collabify-dark .main-sidebar
+.nav-sidebar .nav-link[href*="/dashboard"].active,
+body.collabify-dark .main-sidebar
+.nav-sidebar .nav-link[href*="/dashboard"]:hover,
+
+body.collabify-dark .main-sidebar
+.nav-sidebar .nav-link[href*="/tasks"].active,
+body.collabify-dark .main-sidebar
+.nav-sidebar .nav-link[href*="/tasks"]:hover,
+
+body.collabify-dark .main-sidebar
+.nav-sidebar .nav-link[href*="/templates"].active,
+body.collabify-dark .main-sidebar
+.nav-sidebar .nav-link[href*="/templates"]:hover,
+
+body.collabify-dark .main-sidebar
+.nav-sidebar .nav-link[href*="/forum"].active,
+body.collabify-dark .main-sidebar
+.nav-sidebar .nav-link[href*="/forum"]:hover,
+
+body.collabify-dark .main-sidebar
+.nav-sidebar .nav-link[href*="/profil"].active,
+body.collabify-dark .main-sidebar
+.nav-sidebar .nav-link[href*="/profil"]:hover {
+
+    background: #293541 !important;
+
+    color: #79A9D8 !important;
+
+}
+
+
+/* =====================================================
+   DARK PINK SIDEBAR ITEMS
+   ===================================================== */
+
+body.collabify-dark .main-sidebar
+.nav-sidebar .nav-link[href*="/groups"].active,
+body.collabify-dark .main-sidebar
+.nav-sidebar .nav-link[href*="/groups"]:hover,
+
+body.collabify-dark .main-sidebar
+.nav-sidebar .nav-link[href*="/notes"].active,
+body.collabify-dark .main-sidebar
+.nav-sidebar .nav-link[href*="/notes"]:hover,
+
+body.collabify-dark .main-sidebar
+.nav-sidebar .nav-link[href*="workspaces"].active,
+body.collabify-dark .main-sidebar
+.nav-sidebar .nav-link[href*="workspaces"]:hover,
+
+body.collabify-dark .main-sidebar
+.nav-sidebar .nav-link[href*="/spin"].active,
+body.collabify-dark .main-sidebar
+.nav-sidebar .nav-link[href*="/spin"]:hover,
+
+body.collabify-dark .main-sidebar
+.nav-sidebar .nav-link[href*="/logout"].active,
+body.collabify-dark .main-sidebar
+.nav-sidebar .nav-link[href*="/logout"]:hover {
+
+    background: #34303A !important;
+
+    color: #FF9AA2 !important;
+
+}
+
+
+/* =====================================================
+   SIDEBAR ICON
+   ===================================================== */
+
+body.collabify-dark .main-sidebar .nav-sidebar .nav-icon {
+
+    color: inherit !important;
+
+}
+
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+
+@media (max-width: 767px) {
+
+    .cf-main-grid {
+
+        grid-template-columns: 1fr !important;
+
+    }
+
+}
+/* =========================================================
+   DARK MODE - GENERIC ADMINLTE / BOOTSTRAP CARDS
+========================================================= */
+
+body.collabify-dark .card,
+body.collabify-dark .card-body,
+body.collabify-dark .card-header,
+body.collabify-dark .card-footer {
+    background: #202329 !important;
+    color: #F1F2F4 !important;
+    border-color: #343841 !important;
+}
+
+body.collabify-dark .card-header {
+    border-bottom-color: #343841 !important;
+}
+
+body.collabify-dark .card-footer {
+    border-top-color: #343841 !important;
+}
+
+body.collabify-dark .card h1,
+body.collabify-dark .card h2,
+body.collabify-dark .card h3,
+body.collabify-dark .card h4,
+body.collabify-dark .card h5,
+body.collabify-dark .card h6,
+body.collabify-dark .card strong {
+    color: #F1F2F4 !important;
+}
+
+body.collabify-dark .card p,
+body.collabify-dark .card span,
+body.collabify-dark .card small,
+body.collabify-dark .card .text-muted {
+    color: #A7AAB2 !important;
+}
+
+body.collabify-dark .card hr {
+    border-top-color: #343841 !important;
+}
+
+/* Icon / soft boxes inside card */
+body.collabify-dark .card .bg-light,
+body.collabify-dark .card .bg-white {
+    background: #292C32 !important;
+    color: #F1F2F4 !important;
+}
+
+/* Buttons tetap pakai accent Collabify */
+body.collabify-dark .card .btn-primary {
+    background: #79A9D8 !important;
+    border-color: #79A9D8 !important;
+    color: #182027 !important;
+}
+
+body.collabify-dark .card .btn-primary:hover {
+    background: #5E91C4 !important;
+    border-color: #5E91C4 !important;
+    color: #FFFFFF !important;
+}

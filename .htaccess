@@ -1,0 +1,21 @@
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Block direct access to internal application folders
+    RewriteRule ^(app|system|writable|vendor|tests|migrations|database)/ - [F,L,NC]
+
+    # Block sensitive files
+    RewriteRule ^(\.env|\.git|composer\.(json|lock)|phpunit\.xml\.dist|spark|preload\.php) - [F,L,NC]
+
+    # Serve files and folders from public/
+    RewriteCond %{DOCUMENT_ROOT}/public/$1 -f [OR]
+    RewriteCond %{DOCUMENT_ROOT}/public/$1 -d
+    RewriteRule ^(.+)$ public/$1 [L]
+
+    # Send application routes to CodeIgniter
+    RewriteRule ^(.*)$ public/index.php/$1 [L,QSA]
+</IfModule>
+
+Options -Indexes
