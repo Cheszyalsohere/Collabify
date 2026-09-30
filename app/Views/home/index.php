@@ -1,6 +1,6 @@
-<?= $this->extend('layouts/public_template') ?>
+<?= $this->extend('layouts/template') ?>
 
-<?= $this->section('head') ?>
+<?= $this->section('content') ?>
 
 <style>
 /* =========================================================
@@ -9,11 +9,11 @@
 
 .home-page{
     --home-blue:#79A9D8;
-    --home-blue-deep:#5E91C4;
+    --home-blue-deep:#376590;
     --home-blue-soft:#EAF3FA;
 
     --home-pink:#FF9AA2;
-    --home-pink-hot:#FF677D;
+    --home-pink-hot:#B23A52;
     --home-pink-soft:#FFF0F1;
 
     --home-yellow:#F9E79F;
@@ -23,8 +23,8 @@
     --home-card:#FFFFFF;
 
     --home-text:#30323A;
-    --home-muted:#77777D;
-    --home-faint:#A4A4AA;
+    --home-muted:#62666D;
+    --home-faint:#6E727A;
 
     --home-border:#F0DFE1;
 
@@ -881,10 +881,7 @@
 }
 </style>
 
-<?= $this->endSection() ?>
 
-
-<?= $this->section('content') ?>
 
 <div class="home-page">
 

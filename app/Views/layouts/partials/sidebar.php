@@ -2,7 +2,7 @@
 
 <aside class="main-sidebar sidebar-light-primary elevation-1">
 
-    <a href="<?= base_url('/dashboard') ?>" class="brand-link">
+    <a href="<?= base_url('/home') ?>" class="brand-link">
         <span class="brand-text font-weight-bold">COLLABIFY</span>
     </a>
 
@@ -12,7 +12,17 @@
                 data-widget="treeview"
                 role="menu">
 
-                <!-- DASHBOARD -->
+                <!-- BERANDA (semua pengguna) -->
+                <li class="nav-item">
+                    <a href="<?= base_url('/home') ?>"
+                       class="nav-link <?= $u === 'home' ? 'active' : '' ?>">
+                        <i class="nav-icon ti ti-home"></i>
+                        <p>Beranda</p>
+                    </a>
+                </li>
+
+                <?php if (session('role') === 'admin'): ?>
+                <!-- DASHBOARD (khusus admin) -->
                 <li class="nav-item">
                     <a href="<?= base_url('/dashboard') ?>"
                        class="nav-link <?= $u === 'dashboard' ? 'active' : '' ?>">
@@ -20,6 +30,7 @@
                         <p>Dashboard</p>
                     </a>
                 </li>
+                <?php endif; ?>
 
                 <!-- KELOMPOK -->
                 <li class="nav-header">KOLABORASI</li>

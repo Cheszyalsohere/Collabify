@@ -206,6 +206,27 @@ html body.collabify-dark .spin-button:disabled{background:rgba(255,255,255,.10)!
 
 html body.collabify-dark .wheel-center{background:#232936!important;color:#9CC3EA!important;border-color:rgba(255,255,255,.12)!important;}
 
+/* ── Beranda: variabel --home-* ── */
+html body.collabify-dark .home-page{
+  --home-blue:#9CC3EA;
+  --home-blue-deep:#9CC3EA;
+  --home-blue-soft:rgba(94,145,196,.20);
+  --home-pink:#F4A9BA;
+  --home-pink-hot:#F4A9BA;
+  --home-pink-soft:rgba(232,120,150,.17);
+  --home-yellow:#E8C466;
+  --home-yellow-soft:rgba(245,217,107,.14);
+  --home-bg:transparent;
+  --home-card:rgba(28,33,44,.84);
+  --home-text:#ECEFF4;
+  --home-muted:#A9B0BD;
+  --home-faint:#8E96A4;
+  --home-border:rgba(255,255,255,.10);
+}
+
+html body.collabify-dark .home-btn-primary,
+html body.collabify-dark .home-btn-primary i{color:#0E1A28!important;}
+
 /* ═══ Aturan per-halaman (dibuat otomatis dari CSS tiap halaman) ═══ */
 html body.collabify-dark .action-secondary{background:rgba(94,145,196,.20)!important;color:#ECEFF4!important}
 html body.collabify-dark .add-option{background:rgba(255,255,255,.06)!important;color:#A9B0BD!important}
@@ -309,6 +330,7 @@ html body.collabify-dark .home-empty-icon{background:rgba(255,255,255,.06)!impor
 html body.collabify-dark .home-group-card{background:rgba(255,255,255,.06)!important}
 html body.collabify-dark .home-group-card:hover{background:rgba(255,255,255,.06)!important}
 html body.collabify-dark .home-stat:nth-child(3) .home-stat-icon{color:#E8C466!important}
+html body.collabify-dark .home-summary{background:rgba(255,255,255,.06)!important}
 html body.collabify-dark .home-task-list{background:rgba(255,255,255,.06)!important}
 html body.collabify-dark .home-template-card:hover{border-color:rgba(255,255,255,.10)!important}
 html body.collabify-dark .invite-code{background:rgba(94,145,196,.20)!important;color:#9CC3EA!important}
@@ -332,7 +354,7 @@ html body.collabify-dark .note-status{color:#8FD3AB!important}
 html body.collabify-dark .notes-alert-danger{background:rgba(255,255,255,.06)!important;color:#F4A9BA!important;border-color:rgba(255,255,255,.10)!important}
 html body.collabify-dark .notes-alert-success{background:rgba(120,200,150,.15)!important;color:#8FD3AB!important;border-color:rgba(255,255,255,.10)!important}
 html body.collabify-dark .notes-count{background:rgba(255,255,255,.06)!important;color:#A9B0BD!important}
-html body.collabify-dark .notes-empty{border-color:rgba(255,255,255,.10)!important}
+html body.collabify-dark .notes-empty{border-color:rgba(255,255,255,.10)!important;background:rgba(255,255,255,.06)!important}
 html body.collabify-dark .notes-empty h3{color:#ECEFF4!important}
 html body.collabify-dark .notes-empty p{color:#A9B0BD!important}
 html body.collabify-dark .notes-empty-icon{background:rgba(94,145,196,.20)!important;color:#9CC3EA!important}
@@ -431,7 +453,7 @@ html body.collabify-dark .template-card-title{color:#ECEFF4!important}
 html body.collabify-dark .template-category{background:rgba(255,255,255,.06)!important;color:#A9B0BD!important}
 html body.collabify-dark .template-count{background:rgba(255,255,255,.06)!important;color:#A9B0BD!important}
 html body.collabify-dark .template-date{color:#A9B0BD!important}
-html body.collabify-dark .template-empty{border-color:rgba(255,255,255,.10)!important}
+html body.collabify-dark .template-empty{border-color:rgba(255,255,255,.10)!important;background:rgba(255,255,255,.06)!important}
 html body.collabify-dark .template-empty h3{color:#ECEFF4!important}
 html body.collabify-dark .template-empty p{color:#A9B0BD!important}
 html body.collabify-dark .template-empty-icon{background:rgba(94,145,196,.20)!important;color:#9CC3EA!important}
@@ -462,7 +484,7 @@ html body.collabify-dark .workspace-alert{border-color:rgba(255,255,255,.10)!imp
 html body.collabify-dark .workspace-card{border-color:rgba(255,255,255,.10)!important;background:rgba(255,255,255,.06)!important}
 html body.collabify-dark .workspace-card-title{color:#ECEFF4!important}
 html body.collabify-dark .workspace-count{background:rgba(255,255,255,.06)!important;color:#A9B0BD!important}
-html body.collabify-dark .workspace-empty{border-color:rgba(255,255,255,.10)!important}
+html body.collabify-dark .workspace-empty{border-color:rgba(255,255,255,.10)!important;background:rgba(255,255,255,.06)!important}
 html body.collabify-dark .workspace-empty h3{color:#ECEFF4!important}
 html body.collabify-dark .workspace-empty p{color:#A9B0BD!important}
 html body.collabify-dark .workspace-empty-icon{background:rgba(255,255,255,.06)!important;color:#F4A9BA!important}

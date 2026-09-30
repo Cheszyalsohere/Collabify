@@ -301,4 +301,4 @@
 </style>
 
 <link rel="stylesheet" href="<?= base_url('assets/css/collabify-ui.css') ?>">
-<link rel="stylesheet" href="<?= base_url('assets/css/collabify-dark.css') ?>?v=5">
+<link rel="stylesheet" href="<?= base_url('assets/css/collabify-dark.css') ?>?v=9">
