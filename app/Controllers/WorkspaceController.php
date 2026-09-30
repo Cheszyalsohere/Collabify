@@ -138,6 +138,26 @@ class WorkspaceController extends BaseController
     }
 
     /**
+     * Workspace tanpa template: buka dokumen Google KOSONG (docs.new) di tab baru.
+     * Dokumen dibuat di Drive pengguna sendiri; aplikasi hanya mencatatnya di riwayat.
+     * Route: workspaces/dokumen-kosong  (POST)
+     */
+    public function dokumenKosong()
+    {
+        $judul = trim((string) $this->request->getPost('judul'));
+        $judul = $judul === '' ? 'Dokumen baru' : mb_substr($judul, 0, 200);
+
+        (new \App\Models\WorkspaceHistoryModel())->insert([
+            'id_user'     => (int) session()->get('id_user'),
+            'id_template' => null,
+            'judul'       => $judul,
+            'created_at'  => date('Y-m-d H:i:s'),
+        ]);
+
+        return redirect()->to('https://docs.new');
+    }
+
+    /**
      * Hapus satu baris riwayat (milik sendiri).
      * Route: workspaces/riwayat/(:num)/hapus  (POST)
      */

@@ -65,12 +65,14 @@ $routes->group('', ['filter' => 'auth'], static function ($routes) {
     $routes->post('templates/(:num)/rating', 'TemplateController::rating/$1');
     $routes->get('templates/(:num)/use', 'WorkspaceController::createFromTemplate/$1');
     $routes->post('templates/(:num)/gunakan-google', 'TemplateController::gunakanGoogle/$1');
+    $routes->post('templates/(:num)/gdoc', 'TemplateController::setGoogleDoc/$1');
 
     // Workspaces
     $routes->get('workspaces', 'WorkspaceController::index');
     $routes->post('workspaces/store', 'WorkspaceController::store');
     $routes->post('workspaces/save', 'WorkspaceController::save');
     $routes->post('workspaces/riwayat/(:num)/link', 'WorkspaceController::saveHistoryLink/$1');
+    $routes->post('workspaces/dokumen-kosong', 'WorkspaceController::dokumenKosong');
     $routes->post('workspaces/riwayat/(:num)/hapus', 'WorkspaceController::deleteHistory/$1');
     $routes->get('workspaces/(:num)', 'WorkspaceController::show/$1');
 

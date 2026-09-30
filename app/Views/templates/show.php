@@ -546,6 +546,54 @@
 
                 </div>
 
+                <?php
+                    $bolehUbahGdoc = (int) ($template['uploaded_by'] ?? 0) === (int) session('id_user')
+                        || session('role') === 'admin';
+                ?>
+
+                <?php if (empty($template['gdoc_id'])): ?>
+                    <p class="text-muted small mt-3 mb-2">
+                        Template ini belum tertaut ke Google Docs, jadi "Gunakan" membuka editor di aplikasi.
+                        <?= $bolehUbahGdoc
+                            ? 'Tempel tautan dokumennya di bawah supaya pengguna bisa langsung menyalinnya ke Google Docs.'
+                            : 'Minta pengunggah template menambahkan tautan Google Docs.' ?>
+                    </p>
+                <?php endif; ?>
+
+                <?php if ($bolehUbahGdoc): ?>
+                    <details class="mt-2" <?= empty($template['gdoc_id']) ? 'open' : '' ?>>
+                        <summary class="small font-weight-bold" style="cursor:pointer">
+                            <?= empty($template['gdoc_id']) ? 'Tautkan ke Google Docs' : 'Ubah tautan Google Docs' ?>
+                        </summary>
+                        <form
+                            action="<?= base_url('templates/' . (int) $template['id_template'] . '/gdoc') ?>"
+                            method="post"
+                            class="mt-2"
+                        >
+                            <?= csrf_field() ?>
+                            <div class="input-group">
+                                <input
+                                    type="url"
+                                    name="google_doc_url"
+                                    class="form-control"
+                                    maxlength="500"
+                                    placeholder="https://docs.google.com/document/d/..."
+                                    value="<?= ! empty($template['gdoc_id'])
+                                        ? esc('https://docs.google.com/' . $template['gdoc_type'] . '/d/' . $template['gdoc_id'] . '/edit', 'attr')
+                                        : '' ?>"
+                                >
+                                <div class="input-group-append">
+                                    <button type="submit" class="btn btn-primary">Simpan</button>
+                                </div>
+                            </div>
+                            <small class="text-muted">
+                                Bagikan dokumennya sebagai <strong>Pelihat (Viewer)</strong> untuk siapa saja yang punya link.
+                                Mengosongkan kolom menghapus tautan (hanya bila template punya file).
+                            </small>
+                        </form>
+                    </details>
+                <?php endif; ?>
+
 
 
 

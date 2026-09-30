@@ -147,6 +147,52 @@ class TemplateController extends BaseController
     }
 
     /**
+     * Pemilik template (atau admin) menambah / mengganti / menghapus tautan Google Docs.
+     * Route: templates/(:num)/gdoc  (POST)
+     */
+    public function setGoogleDoc($idTemplate)
+    {
+        $template = $this->templateModel->find((int) $idTemplate);
+
+        if (! $template) {
+            return redirect()->to('/templates')->with('error', 'Template tidak ditemukan.');
+        }
+
+        $isOwner = (int) $template['uploaded_by'] === (int) session()->get('id_user');
+        $isAdmin = session()->get('role') === 'admin';
+
+        if (! $isOwner && ! $isAdmin) {
+            return redirect()->back()->with('error', 'Hanya pengunggah template yang boleh mengubah tautan Google Docs.');
+        }
+
+        $url = trim((string) $this->request->getPost('google_doc_url'));
+
+        if ($url === '') {
+            // Menghapus tautan hanya boleh kalau template masih punya file (supaya tetap bisa dipakai).
+            if (empty($template['file_path'])) {
+                return redirect()->back()->with('error', 'Template ini tidak punya file, jadi tautan Google Docs tidak bisa dihapus.');
+            }
+
+            $this->templateModel->update($template['id_template'], ['gdoc_type' => null, 'gdoc_id' => null]);
+
+            return redirect()->back()->with('success', 'Tautan Google Docs dihapus.');
+        }
+
+        $gdoc = self::parseGoogleDocUrl($url);
+
+        if ($gdoc === null) {
+            return redirect()->back()->with('error', 'Tautan tidak valid. Tempel alamat dokumen dari docs.google.com (Docs, Sheets, atau Slides).');
+        }
+
+        $this->templateModel->update($template['id_template'], [
+            'gdoc_type' => $gdoc['type'],
+            'gdoc_id'   => $gdoc['id'],
+        ]);
+
+        return redirect()->back()->with('success', 'Tautan Google Docs tersimpan. Sekarang tombol "Gunakan" membuka salinan Google Docs.');
+    }
+
+    /**
      * "Gunakan" → buka tautan SALIN Google di tab baru.
      * Google meminta pengguna menyalin ke Drive-nya sendiri, jadi pengguna itu
      * yang menjadi pemilik salinan dan dokumen template asli tidak bisa diubah.

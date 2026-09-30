@@ -43,6 +43,27 @@
 <?php endif; ?>
 
 
+<form
+    action="<?= base_url('workspaces/dokumen-kosong') ?>"
+    method="post"
+    target="_blank"
+    class="gh-new"
+>
+    <?= csrf_field() ?>
+    <label for="gh-new-judul" class="gh-new-label">Mulai tanpa template</label>
+    <input
+        type="text"
+        id="gh-new-judul"
+        name="judul"
+        class="gh-input"
+        maxlength="200"
+        placeholder="Nama dokumen (opsional)"
+    >
+    <button type="submit" class="gh-btn">
+        <i class="ti ti-brand-google-drive"></i> Buka dokumen kosong di Google Docs
+    </button>
+</form>
+
 <?php if (! empty($history)): ?>
 
     <div class="workspace-list-header">
@@ -122,6 +143,11 @@
 
 
 <style>
+.gh-new{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:14px 16px;margin-bottom:18px;border-radius:16px;
+  background:rgba(255,255,255,.80);border:1px solid rgba(255,255,255,.95);
+  box-shadow:0 1px 2px rgba(40,60,90,.06),0 4px 8px rgba(40,60,90,.05);}
+.gh-new-label{margin:0;font-weight:600;color:#30323A;font-size:14px;flex:0 0 auto;}
+.gh-new .gh-input{flex:1 1 220px;}
 .gh-list{display:flex;flex-direction:column;gap:10px;margin-bottom:8px;}
 .gh-item{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:14px 16px;border-radius:16px;
   background:rgba(255,255,255,.62);border:1px solid rgba(255,255,255,.85);
