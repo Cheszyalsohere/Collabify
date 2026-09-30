@@ -14,6 +14,7 @@ $communityChannels = $communityChannels ?? [];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title><?= esc($title) ?> - Collabify</title>
+    <link rel="icon" type="image/png" href="<?= base_url('assets/collabify/favicon.png') ?>">
 
     <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
@@ -962,6 +963,9 @@ $communityChannels = $communityChannels ?? [];
             border-radius: 12px;
             font-size: 13px;
         }
+    
+        .brand h2{display:flex;align-items:center;gap:9px;}
+        .brand-logo{width:26px;height:26px;object-fit:contain;flex-shrink:0;}
     </style>
 </head>
 
@@ -980,7 +984,7 @@ $communityChannels = $communityChannels ?? [];
                 <i class="ti ti-arrow-left"></i>
                 Keluar dari Forum
             </a>
-            <h2>COLLABIFY</h2>
+            <h2><img src="<?= base_url('assets/collabify/logo.png') ?>" alt="" class="brand-logo" width="26" height="26">COLLABIFY</h2>
             <span>FORUM KOLABORASI</span>
         </div>
 

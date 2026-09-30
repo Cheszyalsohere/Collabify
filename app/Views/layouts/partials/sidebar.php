@@ -3,6 +3,7 @@
 <aside class="main-sidebar sidebar-light-primary elevation-1">
 
     <a href="<?= base_url('/home') ?>" class="brand-link">
+        <img src="<?= base_url('assets/collabify/logo.png') ?>" alt="" class="brand-logo" width="28" height="28">
         <span class="brand-text font-weight-bold">COLLABIFY</span>
     </a>
 

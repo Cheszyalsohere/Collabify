@@ -149,9 +149,9 @@
         }
 
         .cf-brand-mark{
-            width:24px;
-            height:24px;
-            color:var(--blue-deep);
+            width:28px;
+            height:28px;
+            object-fit:contain;
         }
 
         .cf-brand-text{
@@ -905,9 +905,7 @@ $uri     = uri_string();
 
             <a href="<?= base_url('/') ?>" class="cf-brand">
 
-                <svg class="cf-brand-mark">
-                    <use href="#cf-mark"></use>
-                </svg>
+                <img src="<?= base_url('assets/collabify/logo.png') ?>" alt="" class="cf-brand-mark" width="28" height="28">
 
                 <span class="cf-brand-text">
                     COLLABIFY

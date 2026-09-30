@@ -243,9 +243,6 @@ body:has(.cf-page){
       <img src="<?= base_url('assets/collabify/logo.png') ?>" alt="Collabify">
       <span>Collabify</span>
     </a>
-    <div class="cf-links">
-      <a class="active" href="<?= base_url('/') ?>">Home</a>
-    </div>
     <div class="cf-auth">
       <a class="cf-btn secondary" href="<?= base_url('login') ?>">Masuk</a>
       <a class="cf-btn primary" href="<?= base_url('register') ?>">Daftar gratis</a>

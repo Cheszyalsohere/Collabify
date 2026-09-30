@@ -6,7 +6,7 @@
 
 <title>Daftar — COLLABIFY</title>
 
-<link rel="icon" type="image/png" href="<?= base_url('assets/favicon.png') ?>">
+<link rel="icon" type="image/png" href="<?= base_url('assets/collabify/favicon.png') ?>">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -127,6 +127,13 @@ a{
     font-size:15px;
     font-weight:700;
     letter-spacing:.16em;
+}
+
+.brand-logo{
+    width:34px;
+    height:34px;
+    object-fit:contain;
+    display:block;
 }
 
 /* MAIN */
@@ -431,9 +438,7 @@ input:focus{
 <div class="top">
     <a href="<?= base_url('/') ?>" class="brand">
 
-        <span class="brand-mark">
-            <i class="ti ti-sparkles"></i>
-        </span>
+        <img src="<?= base_url('assets/collabify/logo.png') ?>" alt="" class="brand-logo" width="34" height="34">
 
         <span class="brand-name">COLLABIFY</span>
 

@@ -11,7 +11,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="<?= base_url('assets/tabler/tabler-icons.min.css') ?>">
-<link rel="icon" href="<?= base_url('favicon.ico') ?>">
+<link rel="icon" type="image/png" href="<?= base_url('assets/collabify/favicon.png') ?>">
+<link rel="alternate icon" href="<?= base_url('favicon.ico') ?>">
 
 <style>
   /* ════════ Collabify (over AdminLTE) ════════ */
@@ -99,6 +100,8 @@
   .main-sidebar{background:var(--surface)!important;border-right:1px solid var(--border)!important;box-shadow:none!important;}
   .main-sidebar .brand-link{background:transparent!important;border-bottom:1px solid var(--border)!important;
     padding:15px 16px!important;display:flex;align-items:center;gap:9px;}
+  .brand-link{display:flex!important;align-items:center;gap:10px;}
+  .brand-link .brand-logo{width:28px;height:28px;object-fit:contain;flex-shrink:0;}
   .brand-link .brand-text{color:var(--ink)!important;font-weight:600!important;letter-spacing:.18em;font-size:15px;}
   .nav-sidebar .nav-header{color:var(--faint)!important;font-family:var(--mono);font-size:10px!important;
     letter-spacing:.14em!important;text-transform:uppercase;padding:16px 18px 7px!important;opacity:1;}
