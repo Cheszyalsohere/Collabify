@@ -95,7 +95,8 @@
                         <div class="form-group">
 
                             <label for="assigned_to">
-                                Ditugaskan kepada
+                                Penanggung jawab
+                                <span class="text-muted font-weight-normal">(opsional)</span>
                             </label>
 
                             <select
@@ -113,7 +114,8 @@
                             <small
                                 id="memberHelp"
                                 class="form-text text-muted">
-                                Anggota kelompok akan muncul setelah kelompok dipilih.
+                                Siapa yang mengerjakan tugas ini? Anggota kelompok muncul setelah kelompok dipilih.
+                                Boleh dikosongkan, nanti bisa dibagi lewat Spin.
                             </small>
 
                         </div>
@@ -279,7 +281,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
 
                 memberSelect.innerHTML =
-                    '<option value="">Pilih anggota</option>';
+                    '<option value="">Belum ditentukan (bisa dibagi lewat Spin)</option>';
 
                 data.members.forEach(function (member) {
 
@@ -300,8 +302,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 memberSelect.disabled = false;
 
                 memberHelp.textContent =
+                    'Boleh dikosongkan dan dibagi nanti lewat Spin. ' +
                     data.members.length +
-                    ' anggota tersedia untuk ditugaskan.';
+                    ' anggota di kelompok ini.';
 
             })
             .catch(error => {

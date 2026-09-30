@@ -133,7 +133,7 @@
                 <div class="detail-item">
                     <span class="detail-label">
                         <i class="ti ti-user mr-1"></i>
-                        Ditugaskan kepada
+                        Penanggung jawab
                     </span>
 
                     <span class="detail-value">
