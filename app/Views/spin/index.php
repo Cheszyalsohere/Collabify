@@ -13,15 +13,21 @@
                     /* =========================================================
                        COLLABIFY — SPIN
                        ========================================================= */
-                    .spin-page {
-                        --spin-primary: #5E91C4;
-                        --spin-primary-dark: #4A7DB0;
+                    /* Variabel dipakai juga oleh modal hasil (#resultOverlay), yang letaknya DI LUAR .spin-page;
+                       tanpa ini tombol "Lanjut Spin" tidak punya latar (teks putih di atas putih). */
+                    .spin-page,
+                    .result-overlay {
+                        --spin-primary: #4477A6;
+                        --spin-primary-dark: #376590;
                         --spin-soft: #EAF3FA;
                         --spin-border: #e7e5ef;
                         --spin-text: #242336;
                         --spin-muted: #858397;
                         --spin-success: #27b07d;
                         --spin-bg: #f8f8fc;
+                    }
+
+                    .spin-page {
                         padding: 28px;
                         background: var(--spin-bg);
                         min-height: calc(100vh - 70px);

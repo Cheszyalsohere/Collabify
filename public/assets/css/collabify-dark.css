@@ -188,7 +188,8 @@ html body.collabify-dark select:focus-visible,
 html body.collabify-dark textarea:focus-visible{outline:3px solid rgba(156,195,234,.7)!important;outline-offset:2px!important;}
 
 /* ── Spin: halaman ini memakai variabel --spin-* (bukan warna tetap) ── */
-html body.collabify-dark .spin-page{
+html body.collabify-dark .spin-page,
+html body.collabify-dark .result-overlay{
   --spin-primary:#7FB0E0;
   --spin-primary-dark:#9CC3EA;
   --spin-soft:rgba(94,145,196,.20);
@@ -197,8 +198,8 @@ html body.collabify-dark .spin-page{
   --spin-muted:#A9B0BD;
   --spin-success:#8FD3AB;
   --spin-bg:transparent;
-  background:transparent!important;
 }
+html body.collabify-dark .spin-page{background:transparent!important;}
 html body.collabify-dark .spin-button,
 html body.collabify-dark .result-button,
 html body.collabify-dark .action-primary{color:#0E1A28!important;}
@@ -296,6 +297,8 @@ html body.collabify-dark .gh-input{border-color:rgba(255,255,255,.10)!important;
 html body.collabify-dark .gh-item{background:rgba(255,255,255,.06)!important;border-color:rgba(255,255,255,.10)!important}
 html body.collabify-dark .gh-meta{color:#A9B0BD!important}
 html body.collabify-dark .gh-meta a{color:#9CC3EA!important}
+html body.collabify-dark .gh-new{background:rgba(255,255,255,.06)!important;border-color:rgba(255,255,255,.10)!important}
+html body.collabify-dark .gh-new-label{color:#ECEFF4!important}
 html body.collabify-dark .gh-title{color:#ECEFF4!important}
 html body.collabify-dark .gh-title i{color:#9CC3EA!important}
 html body.collabify-dark .group-card{background:rgba(255,255,255,.06)!important;border-color:rgba(255,255,255,.10)!important}
